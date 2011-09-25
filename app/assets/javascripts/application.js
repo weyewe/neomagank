@@ -5,5 +5,7 @@
 // the compiled file.
 //
 //= require jquery
-//= require jquery_ujs
-//= require_tree .
+//= require cufon/cufon-yui
+//= require cufon/hattori_hanzo.font
+//= require tipsy/jquery.tipsy
+//= require prettyphoto/jquery.prettyPhoto
