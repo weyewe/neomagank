@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 
-	<title> modelnesia | linkedin for models </title>
+	<title> modelNesia | linkedIn for models </title>
 	<%= stylesheet_link_tag    "application" %>
   <%= javascript_include_tag "application" %>
   <%= csrf_meta_tags %>
@@ -71,8 +71,11 @@
 				autoplay: true, 		// Automatically start videos: True/False
 				modal: false 			// If set to true, only the close button will close the window
 			});
-		
-		});
+	
+      // init Uni-Form
+      $('form.uniForm').uniform();
+    });
+
 	/* ]]> */			
 	</script> 
 	

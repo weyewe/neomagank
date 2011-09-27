@@ -1,0 +1,29 @@
+<%= form_for @profile , :html => {:class => "uniForm hidden cv-section-form", :id => "personal-details-form"} do |f| %>
+  <fieldset class="inlineLabels">
+    <div class="ctrlHolder">
+      <%= f.label :name, "Nama" %>
+      <%= f.text_field :name,  :size => "35", :class => "textInput" %>
+    </div>
+
+    <div class="ctrlHolder">
+      <%= f.label :race , "Ras" %>
+      <%= f.text_field :race, :size => "35", :class => "textInput" %>
+    </div>
+
+    <div class="ctrlHolder">
+      <%= f.label :skin_color, "Warna Kulit"%>
+      <%= f.text_field :skin_color,:size => "35", :class => "textInput" %>
+    </div>
+    
+    
+    <div class="ctrlHolder">
+      <%= f.label :skin_color, "Nomor Telepon"%>
+      <%= f.text_field :skin_color,:size => "35", :class => "textInput" %>
+      <p class="formHint">Nomor anda akan kami rahasiakan</p>
+    </div>
+
+  
+
+    <div class="buttonHolder"><button type="submit" class="primaryAction">Submit</button></div>
+  </fieldset>
+<% end %>

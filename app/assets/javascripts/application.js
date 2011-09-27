@@ -9,3 +9,58 @@
 //= require cufon/hattori_hanzo.font
 //= require tipsy/jquery.tipsy
 //= require prettyphoto/jquery.prettyPhoto
+//= require uni-form.jquery.min
+
+
+$(document).ready( function(){
+  
+  $("div.cv-section").hover( function(){
+    $("div.actions", $(this)).show();
+  } , function(){
+    $("div.actions", $(this)).hide();
+  });
+  
+  
+  $("li.cv-item").hover( function(){
+    $("div.sub-actions", $(this)).show();
+  }, function(){
+    $("div.sub-actions", $(this)).hide();
+  });
+  
+  $("div.actions a").click(function(){
+    if( $(this).hasClass("edit")){
+      var $wrapper = $(this).parents(".cv-section");
+      var $ul = $("ul.cv-section-items", $wrapper );
+      var ul_id = $ul.attr("id");
+
+      var form_id = ul_id + "-form";
+      var $form = $("form.cv-section-form", $wrapper);
+
+      $form.show();
+      $ul.hide();
+
+      var $action_wrapper = $(this).parents("div.actions");
+      $("a.edit", $action_wrapper).hide();
+      $("a.cancel", $action_wrapper).show();
+    }else if($(this).hasClass("cancel")){
+      console.log("I am clicked!");
+      var $wrapper = $(this).parents(".cv-section");
+      var $ul = $("ul.cv-section-items", $wrapper );
+      var ul_id = $ul.attr("id");
+
+      var form_id = ul_id + "-form";
+      var $form = $("form.cv-section-form", $wrapper);
+
+      $form.hide();
+      $ul.show();
+
+      var $action_wrapper = $(this).parents("div.actions");
+      $("a.edit", $action_wrapper).show();
+      $("a.cancel", $action_wrapper).hide();
+      
+    }
+    
+    return false;
+  });
+  
+});

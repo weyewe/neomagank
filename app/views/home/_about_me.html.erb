@@ -4,7 +4,7 @@
 	
 	<ul class="cv-section-items">
 	
-		<li class="cv-item">
+		<li class="cv-item" id="about-me">
 			<p>Pellentesque sollicitudin congue diam, et gravida leo posuere at. Nunc fermentum erat at diam convallis
 			 vel porttitor purus congue. Proin blandit, odio ac aliquet fermentum, lectus est dictum nisl, ac elementum
 			 dui ante et ipsum. Nulla congue fermentum dictum.</p>
@@ -15,8 +15,12 @@
 		</li>
 		
 	</ul><!-- end .cv-section-items -->
+	
+	<%= render :partial => "about_me_form" %>
+	
 	<div class="actions">
-    <a href="#" class="action-button">edit</a>
+    <a href="#" class="action-button edit">edit</a>
+    <a href="#" class="action-button cancel hidden">cancel</a>
   </div>
 
 </div><!-- end .cv-section -->

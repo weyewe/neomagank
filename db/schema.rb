@@ -11,7 +11,22 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110925123651) do
+ActiveRecord::Schema.define(:version => 20110927115744) do
+
+  create_table "profiles", :force => true do |t|
+    t.string   "name"
+    t.string   "profile_pic"
+    t.string   "cropped_profile_pic"
+    t.string   "specialized_in"
+    t.string   "race"
+    t.string   "skin_color"
+    t.string   "phone_number"
+    t.text     "description"
+    t.date     "birthdate"
+    t.integer  "user_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "users", :force => true do |t|
     t.string   "email",                                 :default => "", :null => false
@@ -30,5 +45,17 @@ ActiveRecord::Schema.define(:version => 20110925123651) do
 
   add_index "users", ["email"], :name => "index_users_on_email", :unique => true
   add_index "users", ["reset_password_token"], :name => "index_users_on_reset_password_token", :unique => true
+
+  create_table "work_experiences", :force => true do |t|
+    t.string   "company_name"
+    t.string   "position"
+    t.string   "type_of_employment"
+    t.text     "description"
+    t.date     "starting_date"
+    t.date     "ending_date"
+    t.integer  "user_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
 end

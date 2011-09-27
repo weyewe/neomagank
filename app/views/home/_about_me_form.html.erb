@@ -1,0 +1,14 @@
+<%= form_for @profile , :html => {:id => "about_me-form" , :class => "uniForm hidden cv-section-form" } do |f| %>
+  <fieldset class="inlineLabels">
+    <div class="ctrlHolder">
+      <%= f.label :description , "Tentang anda"%>
+      <%= f.text_area :description, :rows => "25", :cols => "25"%>
+      <p class="formHint">Fill some personal information about yourself.</p>
+    </div>
+
+    <div class="buttonHolder">
+      <button type="submit" class="primaryAction">Submit</button>
+    </div>
+  </fieldset>
+<% end %>
+
