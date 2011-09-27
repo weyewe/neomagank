@@ -1,74 +1,21 @@
 <div class="cv-section col-1 fixed">
 
 	<h2 class="cv-section-name">Work Experience</h2>
-	<%= render :partial => "work_experience_form" %>
+	<%= render :partial => "work_experience_form" , :locals => {:work_experience => @work_experience}%>
 	
   
 
 	
-	<ul class="cv-section-items">
-	
-		<li class="cv-item fixed">
-			
-			<h4>Jul 2008 - Present</h4>
-			
-			<div class="cv-item-content" id="work-experience_1">
-				<h2>Senior Project Manager</h2>
-				<h3>Web Design Studios, Full-Time</h3>
-				<br />
-
-				<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam in dui mauris. Vivamus hendrerit arcu sed
-				 erat molestie vehicula. Sed auctor neque eu tellus rhoncus ut eleifend nibh porttitor. Ut in nulla enim.
-				 Phasellus molestie magna non est bibendum non venenatis nisl tempor.</p>
-				<ul>
-					<li>Nunc in dolor id lacus dictum euismod molestie ut tortor</li>
-					<li>Donec eget nunc pulvinar tortor sollicitudin consectetur id eget eros</li>
-					<li>Lorem ipsum dolor sit amet, consectetur adipiscing elit</li>
-				</ul> 
-				
-				
-        
-        
-			</div>	
-			<div class="sub-actions">
-        <a href="#" class="action-button">edit</a>
-        <a href="#" class="action-button">delete</a>
-      </div>
-      
-     
-			
-		</li>
-
-		<li class="cv-item fixed">
-		
-			<h4>Apr 2007 - Aug 2008</h4>
-			
-			<div class="cv-item-content">	
-				<h2>Front End Developer</h2>
-				<h3>Acme Advertising, Full-Time</h3>
-				<br />
-				<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam in dui mauris. Vivamus hendrerit arcu sed
-				 erat molestie vehicula. Sed auctor neque eu tellus rhoncus ut eleifend nibh porttitor. Ut in nulla enim.
-				 Phasellus molestie magna non est bibendum.</p>
-
-				<ul>
-					<li>Nunc in dolor id lacus dictum euismod molestie ut tortor</li>
-					<li>Donec eget nunc pulvinar tortor sollicitudin consectetur id eget eros</li>
-					<li>Lorem ipsum dolor sit amet, consectetur adipiscing elit</li>
-				</ul>
-		
-			</div>	
-			
-			<div class="sub-actions">
-        <a href="#" class="action-button">edit</a>
-        <a href="#" class="action-button">delete</a>
-      </div>
-		</li>
-		
+	<ul class="cv-section-items" id="work-experience">
+	  <% current_user.work_experiences.each do |work_experience| %>
+	    
+	    <%= render :partial => "work_experience_entry" , :locals => {:work_experience => work_experience} %>
+	  <% end%>
 	</ul><!-- end .cv-section-items -->
 
-  <div class="actions">
-    <a href="#" class="action-button">add</a>
+  <div class="super-actions">
+    <a href="#" class="action-button add">add</a>
+    <a href="#" class="action-button cancel hidden">cancel</a>
   </div>
 
 </div><!-- end .cv-section -->

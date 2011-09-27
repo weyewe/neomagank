@@ -5,6 +5,7 @@ Neomagank::Application.routes.draw do
   root :to => 'home#show'
   
   resources :profiles
+  resources :work_experiences
   # The priority is based upon order of creation:
   # first created -> highest priority.
 

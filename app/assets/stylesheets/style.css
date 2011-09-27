@@ -106,9 +106,9 @@ body{
 	.cv-section{ margin-bottom:25px; position: relative}
 		.last{ margin-bottom:0px; }
 		
-	.cv-section div.sub-actions, .cv-section div.actions { border-top: 1px solid #CBCBCB; border-left: 1px solid #CBCBCB; border-bottom: 1px solid #CBCBCB; display:block;  height: 16px; padding: 0; position: absolute;right: 3px; top: 10px; display:none} 
-	.cv-section div.sub-actions a, .cv-section div.actions a {border-right: 1px solid #CBCBCB; color: #7F7F7F; float: left; font-size: 10px;  line-height: 16px; padding-left: 6px;  padding-right: 6px;  text-decoration: none;}
-	.cv-section div.sub-actions a:hover, .cv-section div.actions a:hover { color:black }
+	.cv-section div.super-actions,.cv-section div.sub-actions, .cv-section div.actions { border-top: 1px solid #CBCBCB; border-left: 1px solid #CBCBCB; border-bottom: 1px solid #CBCBCB; display:block;  height: 16px; padding: 0; position: absolute;right: 3px; top: 10px; display:none} 
+	.cv-section div.super-actions a, .cv-section div.sub-actions a, .cv-section div.actions a {border-right: 1px solid #CBCBCB; color: #7F7F7F; float: left; font-size: 10px;  line-height: 16px; padding-left: 6px;  padding-right: 6px;  text-decoration: none;}
+	.cv-section div.super-actions a:hover, .cv-section div.sub-actions a:hover, .cv-section div.actions a:hover { color:black }
 	
 	
 		

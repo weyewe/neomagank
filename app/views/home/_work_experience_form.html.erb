@@ -1,42 +1,35 @@
-<form action="#" class="uniForm hidden">
-  <h2>Tambah Pengalaman Kerja</h2>
-  <fieldset class="inlineLabels">
-    <div class="ctrlHolder">
-      <label for="">Text input</label>
-      <input id="" name="" value="" size="35" class="textInput" type="text">
-      <p class="formHint">This is a form hint.</p>
-    </div>
+<% class_value = "" %>
+<% if work_experience.new_record? %>
+  <% class_value = "new-form"%>
+<% else %>
+  <% class_value = "edit-form"%>
+<% end %>
 
-    <div class="ctrlHolder">
-      <label for="">Text input</label>
-      <input id="" name="" value="" size="35" class="textInput" type="text">
-      <p class="formHint">This is a form hint.</p>
-    </div>
+<%= form_for work_experience , :html => {:class=>"uniForm hidden cv-section-form #{class_value}" , 
+   :id=>"work-experience-form"} do |f| %>
+   <fieldset class="inlineLabels">
+     <div class="ctrlHolder">
+       <%= f.label :company_name, "Nama Perusahaan" %>
+       <%= f.text_field :company_name,  :size => "35", :class => "textInput" %>
+     </div>
 
-    <div class="ctrlHolder">
-      <label for="">Text input</label>
-      <input id="" name="" value="" size="35" class="textInput" type="text">
-      <p class="formHint">This is a form hint.</p>
-    </div>
+     <div class="ctrlHolder">
+       <%= f.label :position, "Jabatan" %>
+      <%= f.text_field :position,  :size => "35", :class => "textInput" %>
+     </div>
+     
+     <div class="ctrlHolder">
+        <%= f.label :type_of_employment, "Status Kerja" %>
+       <%= f.text_field :type_of_employment,  :size => "35", :class => "textInput" %>
+     </div>
 
-    <div class="ctrlHolder">
-      <label for="">Text input</label>
-      <input id="" name="" value="" size="35" class="textInput" type="text">
-      <p class="formHint">This is a form hint.</p>
-    </div>
+     <div class="ctrlHolder">
+       <%= f.label :description, "Deskripsi Pekerjaan" %>
+       <%= f.text_area :description,  :rows => "25", :cols=> "25" %>
+     </div>
+     
+     <div class="buttonHolder"><button type="submit" class="primaryAction">Submit</button></div>
+   </fieldset>
 
-    <div class="ctrlHolder">
-      <label for="">Text input</label>
-      <input id="" name="" value="" size="35" class="textInput" type="text">
-      <p class="formHint">This is a form hint.</p>
-    </div>
+<% end %>
 
-    <div class="ctrlHolder">
-      <label for="">Textarea</label>
-      <textarea id="" name="" rows="25" cols="25"></textarea>
-      <p class="formHint">This is a form hint.</p>
-    </div>
-
-    <div class="buttonHolder"><button type="submit" class="primaryAction">Submit</button></div>
-  </fieldset>
-</form>
