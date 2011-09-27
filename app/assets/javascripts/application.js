@@ -15,21 +15,37 @@
 
 
 $(document).ready( function(){
+  // hovering for those without sub-actions
+
   
-  $("div.cv-section").hover( function(){
-    $("div.actions, div.super-actions", $(this)).show();
-  } , function(){
-    $("div.actions, div.super-actions", $(this)).hide();
+  $("div.cv-section").live({
+    mouseenter:
+    function(){
+      $("div.actions, div.super-actions", $(this)).show();
+    },
+    mouseleave:
+    function(){
+      $("div.actions, div.super-actions", $(this)).hide();
+    }
   });
   
   
-  $("li.cv-item").hover( function(){
-    $("div.sub-actions", $(this)).show();
-  }, function(){
-    $("div.sub-actions", $(this)).hide();
+  // hovering for the subactions
+
+  $("li.cv-item").live({
+    mouseenter:
+    function(){
+      $("div.sub-actions", $(this)).show();
+    },
+    mouseleave:
+    function(){
+      $("div.sub-actions", $(this)).hide();
+    }
   });
   
-  $("div.actions a").click(function(){
+  
+  // edit for non-subaction
+  $("div.actions a").live('click', function(){
     
     if( $(this).hasClass("edit")){
       toggleEntry( this, true );
@@ -40,7 +56,8 @@ $(document).ready( function(){
     return false;
   });
   
-  $("div.super-actions a").click(function(){
+  // add for non-subaction
+  $("div.super-actions a").live('click', function(){
     
     if( $(this).hasClass("add")){
       toggleAddEntry( this, true );
@@ -51,7 +68,8 @@ $(document).ready( function(){
     return false;
   });
   
-  $("div.sub-actions a").click(function(){
+  // edit for subaction
+  $("div.sub-actions a").live('click', function(){
     console.log("sub-actions a is clicked");
     if( $(this).hasClass("edit")){
       toggleEditEntry( this, true );
@@ -62,7 +80,27 @@ $(document).ready( function(){
     return false;
   });
   
+  // initialize prettyLoader
   $.prettyLoader();
+  
+  //ajax post
+  $("form").live('submit',function(){
+    var $this = $(this);
+    var destination = $(this).attr('action');
+  	$.ajax({
+  		url: destination,
+  		type: "POST",
+  		data: $(this).serialize(),
+  		dataType: 'script',
+  		success: function(response){
+  		  $this.clearForm();
+  		  $this.hide();
+  		}
+  	});
+  	return false;
+  });
+  
+  
   
 });
 
@@ -135,3 +173,21 @@ function toggleEditEntry(clicked_node, has_edit){
     $("div.cv-item-content", $wrapper).show();
   }
 }
+
+// clearform function
+$.fn.clearForm = function() {
+  return this.each(function() {
+    var type = this.type, tag = this.tagName.toLowerCase();
+    if (tag == 'form')
+      return $(':input',this).clearForm();
+    if (type == 'text' || type == 'password' || tag == 'textarea')
+      this.value = '';
+    else if (type == 'checkbox' || type == 'radio')
+      this.checked = false;
+    else if (tag == 'select')
+      this.selectedIndex = -1;
+  });
+};
+
+
+

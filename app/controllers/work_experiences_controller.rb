@@ -3,7 +3,10 @@ class WorkExperiencesController < ApplicationController
     @work_experience = WorkExperience.new( params[:work_experience])
     @work_experience.user_id = current_user.id
     @work_experience.save
-    
-    redirect_to root_url
+    respond_to do |format|
+      format.html { redirect_to root_url}
+      format.js
+    end
+
   end
 end
