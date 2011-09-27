@@ -70,7 +70,6 @@ $(document).ready( function(){
   
   // edit for subaction
   $("div.sub-actions a").live('click', function(){
-    console.log("sub-actions a is clicked");
     if( $(this).hasClass("edit")){
       toggleEditEntry( this, true );
     }else if($(this).hasClass("cancel")){
@@ -83,10 +82,8 @@ $(document).ready( function(){
   // initialize prettyLoader
   $.prettyLoader();
   
-  //ajax post
+  //ajax post, only for the CV page
   $("form.ajaxform").live('submit',function(){
-    $.prettyLoader.show();
-
     var $this = $(this);
     var destination = $(this).attr('action');
   	$.ajax({
@@ -97,7 +94,8 @@ $(document).ready( function(){
   		success: function(response){
   		  $this.clearForm();
   		  $this.hide();
-  		  $.prettyLoader.hide();
+        // reset buttons >> close the cancel, show the edit/delete, etc
+        resetActionSelector();
   		}
   	});
   	return false;
@@ -124,11 +122,13 @@ function toggleEntry(clicked_node, has_edit){
     $ul.hide();
     $("a.edit", $action_wrapper).hide();
     $("a.cancel", $action_wrapper).show();
+    $("a.cancel", $action_wrapper).addClass("cancel_is_visible");
   }else{
     $form.hide();
     $ul.show();
     $("a.edit", $action_wrapper).show();
     $("a.cancel", $action_wrapper).hide();
+    $("a.cancel", $action_wrapper).removeClass("cancel_is_visible");
   }
 }
 
@@ -143,10 +143,12 @@ function toggleAddEntry(clicked_node, has_add){
     $new_form.show();
     $("div.super-actions a.add", $wrapper).hide();
     $("div.super-actions a.cancel", $wrapper).show();
+    $("div.super-actions a.cancel", $wrapper).addClass("cancel_is_visible");
   }else{
     $new_form.hide();
     $("div.super-actions a.add", $wrapper).show();
     $("div.super-actions a.cancel", $wrapper).hide();
+    $("div.super-actions a.cancel", $wrapper).removeClass("cancel_is_visible");
   }
 }
 
@@ -165,6 +167,7 @@ function toggleEditEntry(clicked_node, has_edit){
     
     $("div.sub-actions a.edit", $wrapper).hide();
     $("div.sub-actions a.cancel", $wrapper).show();
+    $("div.sub-actions a.cancel", $wrapper).addClass("cancel_is_visible");
     $("h4", $wrapper).hide();
     $("div.cv-item-content", $wrapper).hide();
   }else{
@@ -172,6 +175,7 @@ function toggleEditEntry(clicked_node, has_edit){
     
     $("div.sub-actions a.edit", $wrapper).show();
     $("div.sub-actions a.cancel", $wrapper).hide();
+    $("div.sub-actions a.cancel", $wrapper).removeClass("cancel_is_visible");
     $("h4", $wrapper).show();
     $("div.cv-item-content", $wrapper).show();
   }
@@ -192,5 +196,16 @@ $.fn.clearForm = function() {
   });
 };
 
+
+function resetActionSelector(){
+  $("a.cancel").each(function(){
+    var $this =  $(this);
+    if( $this.hasClass("cancel_is_visible") ){
+      $this.trigger('click');
+      $this.removeClass("cancel_is_visible");
+    }
+  });
+  
+}
 
 
