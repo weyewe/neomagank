@@ -103,8 +103,13 @@ body{
 /* =CV
 ----------------------------------*/
 
-	.cv-section{ margin-bottom:25px; }
+	.cv-section{ margin-bottom:25px; position: relative}
 		.last{ margin-bottom:0px; }
+	.cv-section div.actions { border-top: 1px solid #CBCBCB; border-left: 1px solid #CBCBCB; border-bottom: 1px solid #CBCBCB; display:block;  height: 16px; padding: 0; position: absolute;right: 3px; top: 10px;} 
+	.cv-section div.actions a {border-right: 1px solid #CBCBCB; color: #7F7F7F; float: left; font-size: 10px;  line-height: 16px; padding-left: 6px;  padding-right: 6px;  text-decoration: none;}
+	.cv-section div.actions a:hover { color:black }
+	
+	
 		
 		li.cv-item  p{ margin-bottom:10px; }
 		li.cv-item ul{ list-style:inside; padding-bottom:10px; list-style-type:disc; }
@@ -146,12 +151,16 @@ body{
 	#cv-3{}
 		
 		#cv-3 h2.cv-section-name{ padding-top:15px; border-top:6px solid #DBDEE2; }	
-		#cv-3 ul.cv-section-items li.cv-item{ padding:10px 1px;}
+		#cv-3 ul.cv-section-items li.cv-item{ padding:10px 1px; position:relative;}
 		#cv-3 ul.cv-section-items li.cv-item h4{ float:left; width:150px; }
 		#cv-3 ul.cv-section-items li span.topic{ width:150px; }
 		#cv-3 ul.cv-section-items li span.level{ margin-right:10px;}
 		
-		#cv-3 ul.cv-section-items li.cv-item .cv-item-content{ float:right; width:540px; }
+		#cv-3 ul.cv-section-items li.cv-item .cv-item-content{ float:right; width:540px;  position: relative;}
+		#cv-3 ul.cv-section-items li.cv-item div.actions { top: 4px;}
+		#cv-3 ul.cv-section-items li.cv-item .cv-item-content div.actions  a { border-right: 1px solid #CBCBCB;color: #7F7F7F; float: left; font-size: 10px; line-height: 16px;padding-left: 6px; padding-right: 6px; text-decoration: none; }
+    #cv-3 ul.cv-section-items li.cv-item .cv-item-content div.actions  a:hover { color: black;}     
+		
 		#cv-3 #technical-skills ul.cv-section-items li span.topic{ float:none; width:540px; font-size:16px; }
 
 					

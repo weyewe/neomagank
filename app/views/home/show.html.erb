@@ -1,0 +1,33 @@
+
+<%= render :partial => "header" %>
+<%#= render :partial => "layouts/content" %>
+
+<div id="content" class="fixed">
+<!-- ////////////////////////////////////////////////////////////////////////////////////// -->
+
+	<div id="cv-3">
+	
+		<!-- // PERSONAL DETAILS     ////////////////////////////////////////////////////// -->
+	  <%= render :partial => "personal_details"%>
+		<!-- // PROFESIONAL PROFILE  ////////////////////////////////////////////////////// -->
+		<%= render :partial => "about_me"%>
+		
+		<!-- // WORK EXPERIENCE      ////////////////////////////////////////////////////// -->
+		<%= render :partial => "work_experience"%>
+		
+		<!-- // TECHNICAL SKILLS     ////////////////////////////////////////////////////// -->
+		<%= render :partial => "technical_skills"%>
+		
+		<!-- // EDUCATION            ////////////////////////////////////////////////////// -->
+		<%= render :partial => "education"%>
+		
+	</div><!-- end #cv-3 -->	
+
+	
+<!-- ////////////////////////////////////////////////////////////////////////////////////// -->	
+</div><!-- end #content -->
+<%= render :partial => "layouts/footer"%>
+
+
+<a href="javascript:window.print()" id="print" title="Print CV" class="tip">Print CV</a>
+<a href="#" id="download" title="Download CV" class="tip">Download CV</a>
