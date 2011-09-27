@@ -5,8 +5,7 @@
   <% class_value = "edit-form"%>
 <% end %>
 
-<%= form_for work_experience , :html => {:class=>"uniForm hidden cv-section-form #{class_value}" , 
-   :id=>"work-experience-form"} do |f| %>
+<%= form_for work_experience , :html => {:class=>"uniForm hidden cv-section-form #{class_value}" } do |f| %>
    <fieldset class="inlineLabels">
      <div class="ctrlHolder">
        <%= f.label :company_name, "Nama Perusahaan" %>

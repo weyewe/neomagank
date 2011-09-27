@@ -10,6 +10,8 @@
 //= require tipsy/jquery.tipsy
 //= require prettyphoto/jquery.prettyPhoto
 //= require uni-form.jquery.min
+//= require jquery.prettyLoader.js
+
 
 
 $(document).ready( function(){
@@ -48,6 +50,19 @@ $(document).ready( function(){
     
     return false;
   });
+  
+  $("div.sub-actions a").click(function(){
+    console.log("sub-actions a is clicked");
+    if( $(this).hasClass("edit")){
+      toggleEditEntry( this, true );
+    }else if($(this).hasClass("cancel")){
+      toggleEditEntry(this, false);
+    }
+    
+    return false;
+  });
+  
+  $.prettyLoader();
   
 });
 
@@ -98,19 +113,25 @@ function toggleAddEntry(clicked_node, has_add){
 /* function toggleAddEntry is specific for those cv-sections element such as work experience: 1. driver, 2. teacher, 3.etc*/
 /* Use this function to toggle between editing new work experience , deleting or cancel the creation */
 
-function toggleEditEntry(clicked_node, has_add){
+function toggleEditEntry(clicked_node, has_edit){
   var $clicked_node = $(clicked_node);
   var $wrapper = $clicked_node.parents(".cv-item");
-  var $new_form = $("form.edit-form", $wrapper);
+  var $edit_form = $("form.edit-form", $wrapper);
   
  
-  if( has_add ){
-    $new_form.show();
-    $("div.super-actions a.add", $wrapper).hide();
-    $("div.super-actions a.cancel", $wrapper).show();
+  if( has_edit ){
+    $edit_form.show();
+    
+    $("div.sub-actions a.edit", $wrapper).hide();
+    $("div.sub-actions a.cancel", $wrapper).show();
+    $("h4", $wrapper).hide();
+    $("div.cv-item-content", $wrapper).hide();
   }else{
-    $new_form.hide();
-    $("div.super-actions a.add", $wrapper).show();
-    $("div.super-actions a.cancel", $wrapper).hide();
+    $edit_form.hide();
+    
+    $("div.sub-actions a.edit", $wrapper).show();
+    $("div.sub-actions a.cancel", $wrapper).hide();
+    $("h4", $wrapper).show();
+    $("div.cv-item-content", $wrapper).show();
   }
 }
