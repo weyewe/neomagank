@@ -84,7 +84,9 @@ $(document).ready( function(){
   $.prettyLoader();
   
   //ajax post
-  $("form").live('submit',function(){
+  $("form.ajaxform").live('submit',function(){
+    $.prettyLoader.show();
+
     var $this = $(this);
     var destination = $(this).attr('action');
   	$.ajax({
@@ -95,6 +97,7 @@ $(document).ready( function(){
   		success: function(response){
   		  $this.clearForm();
   		  $this.hide();
+  		  $.prettyLoader.hide();
   		}
   	});
   	return false;
