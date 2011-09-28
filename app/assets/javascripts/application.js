@@ -112,7 +112,6 @@ $(document).ready( function(){
         dataType: 'script',
         data: { '_method': 'delete' },
         success: function() {
-          console.log("Fuck man, using the old one");
         }
       });
     }

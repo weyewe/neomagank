@@ -19,4 +19,18 @@ class EducationsController < ApplicationController
       format.js
     end
   end
+  
+  def destroy
+    @education = Education.find( params[:id] )
+    redirect_to( root_url ) and return if params[:cancel]
+    @education_id = @education.id
+    @education.destroy
+    
+    respond_to do |format|
+      format.html { redirect_to root_url  }
+      format.js
+    end
+  end
+  
+  
 end

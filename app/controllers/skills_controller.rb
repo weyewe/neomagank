@@ -19,4 +19,18 @@ class SkillsController < ApplicationController
       format.js
     end
   end
+  
+  def destroy
+    @skill = Skill.find( params[:id] )
+    redirect_to( root_url ) and return if params[:cancel]
+    @skill_id = @skill.id
+    @skill.destroy
+    
+    respond_to do |format|
+      format.html { redirect_to root_url  }
+      format.js
+    end
+  end
+  
+  
 end
