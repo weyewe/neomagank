@@ -2,28 +2,8 @@
 
   <h2 class="cv-section-name">Personal Details</h2>
 
-  <ul class="cv-section-items" id="personal-details">
-    <li class="cv-item">
-      <span class="topic">Tanggal Lahir:</span>
-      1st May 1990
-    </li>
-
-    <li class="cv-item">
-      <span class="topic">Ras:</span>
-      Melayu
-    </li>
-    <li class="cv-item">
-      <span class="topic">Warna Kulit:</span>
-      Sawo Matang
-    </li>
-    <li class="cv-item">
-
-      <span class="topic">Phone:</span>
-      08138 919 7007 
-    </li>
-  </ul><!-- end .cv-section-items -->
-  
-  <%= render :partial => "personal_details_form"%>
+  <%= render :partial => "personal_details_entry", :locals => {:profile => @profile } %>  
+  <%= render :partial => "personal_details_form" , :locals => {:profile => @profile }%>
 
 
 

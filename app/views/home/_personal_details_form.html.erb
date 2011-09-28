@@ -1,4 +1,4 @@
-<%= form_for @profile , :html => {:class => "uniForm hidden cv-section-form", :id => "personal-details-form"} do |f| %>
+<%= form_for profile , :html => {:class => "ajaxform uniForm hidden cv-section-form", :id => "personal-details-form"} do |f| %>
   <fieldset class="inlineLabels">
     <div class="ctrlHolder">
       <%= f.label :name, "Nama" %>
@@ -17,8 +17,8 @@
     
     
     <div class="ctrlHolder">
-      <%= f.label :skin_color, "Nomor Telepon"%>
-      <%= f.text_field :skin_color,:size => "35", :class => "textInput" %>
+      <%= f.label :phone_number, "Phone"%>
+      <%= f.text_field :phone_number,:size => "35", :class => "textInput" %>
       <p class="formHint">Nomor anda akan kami rahasiakan</p>
     </div>
 

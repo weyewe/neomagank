@@ -1,13 +1,13 @@
-<li class="cv-item fixed">
+<li class="cv-item fixed" id="work_experience-<%= work_experience.id %>">
 	
-	<h4>Jul 2008 - Present</h4>
+	<h4><%= give_interval(work_experience)%></h4>
 	
-	<div class="cv-item-content" id="work-experience_1">
+	<div class="cv-item-content" >
 		<h2><%= work_experience.position %></h2>
 		<h3><%= work_experience.company_name %>, <%= work_experience.type_of_employment%></h3>
 		<br />
     
-
+    
 		<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam in dui mauris. Vivamus hendrerit arcu sed
 		 erat molestie vehicula. Sed auctor neque eu tellus rhoncus ut eleifend nibh porttitor. Ut in nulla enim.
 		 Phasellus molestie magna non est bibendum non venenatis nisl tempor.</p>

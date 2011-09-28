@@ -1,0 +1,13 @@
+<li class="cv-item" id="about-me">
+  <% if profile.description && profile.description.length == 0 %>
+    <p>Pellentesque sollicitudin congue diam, et gravida leo posuere at. Nunc fermentum erat at diam convallis
+      vel porttitor purus congue. Proin blandit, odio ac aliquet fermentum, lectus est dictum nisl, ac elementum
+      dui ante et ipsum. Nulla congue fermentum dictum.</p>
+
+    <p>Cum sociis natoque penatibus et magnis dis parturient
+      montes, nascetur ridiculus mus. Integer ac tristique enim. Nunc fringilla, enim vel accumsan tincidunt,
+      lacus turpis vestibulum nibh, vel mattis ante diam ut nisl. Sed sit amet mauris justo.</p>
+  <% else %>
+    <%= profile.description %>
+  <% end %>
+</li>

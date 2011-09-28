@@ -80,7 +80,7 @@ $(document).ready( function(){
   });
   
   // initialize prettyLoader
-  $.prettyLoader();
+  // $.prettyLoader();
   
   //ajax post, only for the CV page
   $("form.ajaxform").live('submit',function(){
@@ -110,9 +110,7 @@ function toggleEntry(clicked_node, has_edit){
   var $clicked_node = $(clicked_node);
   var $wrapper = $clicked_node.parents(".cv-section");
   var $ul = $("ul.cv-section-items", $wrapper );
-  var ul_id = $ul.attr("id");
 
-  var form_id = ul_id + "-form";
   var $form = $("form.cv-section-form", $wrapper);
   var $action_wrapper = $clicked_node.parents("div.actions");
   
