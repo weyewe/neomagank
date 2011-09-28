@@ -1,0 +1,17 @@
+
+<li class="cv-item fixed" id="skill-<%= skill.id %>"> 
+
+  <span class="level appendix <%= skill_level_visualizer(skill.proficiency) %>">Extensive skillset</span>
+  <div class="cv-item-content">	
+    <span class="topic"><%= skill.name %></span>     
+    <%= skill.description %>
+
+  </div>
+
+  <div class="sub-actions">
+    <a href="#" class="action-button edit">edit</a>
+    <a href="#" class="action-button cancel hidden">cancel</a>
+  </div>
+  
+  <%= render :partial => "home/skill_form", :locals => {:skill => skill}%>
+</li>

@@ -1,0 +1,7 @@
+<% updated_entry =  escape_javascript(render :partial => "home/skill_entry", 
+              :locals=> {:skill => @skill}) %> ;
+$(document).ready(function(){
+  $("li#skill-<%= @skill.id %>").replaceWith('<%= updated_entry %>');
+});
+
+

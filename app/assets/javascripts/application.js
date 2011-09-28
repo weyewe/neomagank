@@ -166,7 +166,7 @@ function toggleEditEntry(clicked_node, has_edit){
     $("div.sub-actions a.edit", $wrapper).hide();
     $("div.sub-actions a.cancel", $wrapper).show();
     $("div.sub-actions a.cancel", $wrapper).addClass("cancel_is_visible");
-    $("h4", $wrapper).hide();
+    $(".appendix", $wrapper).hide();
     $("div.cv-item-content", $wrapper).hide();
   }else{
     $edit_form.hide();
@@ -174,7 +174,7 @@ function toggleEditEntry(clicked_node, has_edit){
     $("div.sub-actions a.edit", $wrapper).show();
     $("div.sub-actions a.cancel", $wrapper).hide();
     $("div.sub-actions a.cancel", $wrapper).removeClass("cancel_is_visible");
-    $("h4", $wrapper).show();
+    $(".appendix", $wrapper).show();
     $("div.cv-item-content", $wrapper).show();
   }
 }

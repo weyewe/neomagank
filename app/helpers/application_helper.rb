@@ -19,4 +19,12 @@ module ApplicationHelper
     
     return result
   end
+  
+  def skill_level_visualizer( proficiency)
+    if proficiency == nil 
+      return "l-1"
+    end
+    
+    return "l-#{proficiency}"
+  end
 end

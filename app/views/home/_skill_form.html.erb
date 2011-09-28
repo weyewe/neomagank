@@ -1,0 +1,37 @@
+<% class_value = "" %>
+<% if skill.new_record? %>
+  <% class_value = "new-form"%>
+<% else %>
+  <% class_value = "edit-form"%>
+<% end %>
+
+
+<%= form_for skill , :html => {:class=>"uniForm ajaxform hidden cv-section-form #{class_value}" } do |f| %>
+   <fieldset class="inlineLabels">
+     <div class="ctrlHolder">
+       <%= f.label :name, "Keahlian" %>
+       <%= f.text_field :name,  :size => "35", :class => "textInput" %>
+     </div>
+
+     <div class="ctrlHolder">
+       <%= f.label :proficiency, "Penguasaan" %>
+       <%= f.select :proficiency, PROFICIENCY , :html => {:style=>"width:300px;"}%>
+       <!-- <select id="" name="">
+         <option value="">Option</option>
+         <option value="">Option</option>
+         <option value="">Option</option>
+       </select> -->
+       <p class="formHint">Pilih 1 jika anda hanya <b>tahu sedikit</b>. Pilih 7 jika anda sangat <b>ahli</b></p>
+     </div>
+
+     <div class="ctrlHolder">
+       <%= f.label :description, "Deskripsi Keahlian" %>
+       <%= f.text_area :description,  :rows => "25", :cols=> "25" %>
+     </div>
+     
+     <div class="buttonHolder"><button type="submit" class="primaryAction">Submit</button></div>
+   </fieldset>
+
+<% end %>
+
+

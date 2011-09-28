@@ -1,11 +1,11 @@
-
 <% updated_entry = "" %>
 <% updated_form = "" %>
+
 <% if @about_me_update %>
   <% updated_entry =  escape_javascript(render :partial => "home/about_me_entry", 
-            :locals=> {:profile => @profile}) %> ;
+            :locals=> {:profile => @profile}) %>
   <% updated_form =  escape_javascript(render :partial => "home/about_me_form", 
-            :locals=> {:profile => @profile}) %> ;
+            :locals=> {:profile => @profile}) %>
   $(document).ready(function(){
     $("#about-me").replaceWith('<%= updated_entry %>');
     $("#about-me-form").replaceWith("<%= updated_form %>")
@@ -14,11 +14,10 @@
     
 <% else %>
   <% updated_entry =  escape_javascript(render :partial => "home/personal_details_entry", 
-              :locals=> {:profile => @profile}) %> ;
-  <% updated_entry =  escape_javascript(render :partial => "home/personal_details_form", 
-              :locals=> {:profile => @profile}) %> ;
+              :locals=> {:profile => @profile}) %> 
+  <% updated_form =  escape_javascript(render :partial => "home/personal_details_form", 
+              :locals=> {:profile => @profile}) %> 
   $(document).ready(function(){
-    console.log("@is_description is false");
     $("#personal-details").replaceWith('<%= updated_entry %>');
     $("#personal-details-form").replaceWith("<%= updated_form %>")
   });

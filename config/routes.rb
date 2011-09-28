@@ -6,6 +6,7 @@ Neomagank::Application.routes.draw do
   
   resources :profiles
   resources :work_experiences
+  resources :skills
   # The priority is based upon order of creation:
   # first created -> highest priority.
 

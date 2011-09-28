@@ -1,0 +1,7 @@
+<% new_entry =  escape_javascript(render :partial => "home/skill_entry", 
+              :locals=> {:skill => @skill}) %> ;
+$(document).ready(function(){
+  $("ul#skills").prepend('<%= new_entry %>');
+});
+
+
