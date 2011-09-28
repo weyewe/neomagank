@@ -8,18 +8,30 @@
             :locals=> {:profile => @profile}) %>
   $(document).ready(function(){
     $("#about-me").replaceWith('<%= updated_entry %>');
-    $("#about-me-form").replaceWith("<%= updated_form %>")
+    $("#about-me-form").replaceWith("<%= updated_form %>");
   });
 
     
 <% else %>
+/* Personal detail update*/
+  <% new_name = escape_javascript( "<h1 id='name'>#{@profile.name}</h1>").html_safe %>
   <% updated_entry =  escape_javascript(render :partial => "home/personal_details_entry", 
               :locals=> {:profile => @profile}) %> 
   <% updated_form =  escape_javascript(render :partial => "home/personal_details_form", 
               :locals=> {:profile => @profile}) %> 
   $(document).ready(function(){
     $("#personal-details").replaceWith('<%= updated_entry %>');
-    $("#personal-details-form").replaceWith("<%= updated_form %>")
+    $("#personal-details-form").replaceWith("<%= updated_form %>");
+    
+    $("h1#name").replaceWith("<%= new_name %>");
+    
+    
+    if ( ! ( $.browser.msie & ($.browser.version == 6) ) ){  
+      $("h1#name").css({'font-size':'46px', 'padding-top':'20px' , 'margin-bottom':'0px' });
+      Cufon.refresh();
+    }
+    
+		
   });
 <% end %>
 
