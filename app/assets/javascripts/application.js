@@ -101,6 +101,25 @@ $(document).ready( function(){
   	return false;
   });
   
+  // to delete resource
+  $('a.delete').live('click', function(event) {
+    
+    var destroy_url = $(this).attr("href");
+    if ( confirm("Are you sure?") ){
+      $.ajax({
+        url: destroy_url,
+        type: 'post',
+        dataType: 'script',
+        data: { '_method': 'delete' },
+        success: function() {
+          console.log("Fuck man, using the old one");
+        }
+      });
+    }
+      
+  
+    return false;
+  });
   
   
 });
@@ -129,6 +148,19 @@ function toggleEntry(clicked_node, has_edit){
     $("a.cancel", $action_wrapper).removeClass("cancel_is_visible");
   }
 }
+
+
+// include AUTH_TOKEN before all ajax request 
+$(document).ajaxSend(function(event, request, settings) {
+  if (typeof(AUTH_TOKEN) == "undefined") return;
+  // settings.data is a serialized string like "foo=bar&baz=boink" (or null)
+  settings.data = settings.data || "";
+  settings.data += (settings.data ? "&" : "") + "authenticity_token=" + encodeURIComponent(AUTH_TOKEN);
+});
+
+
+
+
 
 /* function toggleAddEntry is specific for those cv-sections containing sub entry e.g.: Work Experience*/
 /* Use this function to toggle between creating new work experience or cancel the creation */

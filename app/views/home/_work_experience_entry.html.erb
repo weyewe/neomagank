@@ -25,6 +25,7 @@
 	<div class="sub-actions">
     <a href="#" class="action-button edit">edit</a>
     <a href="#" class="action-button cancel hidden">cancel</a>
+    <%= link_to "delete", work_experience_url( work_experience), :class=>"action-button delete"%>
   </div>
   
  <%= render :partial => "home/work_experience_form", :locals => {:work_experience => work_experience} %>
