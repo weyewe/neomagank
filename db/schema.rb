@@ -18,6 +18,7 @@ ActiveRecord::Schema.define(:version => 20110928045641) do
     t.date     "starting_date"
     t.date     "ending_date"
     t.text     "description"
+    t.string   "degree"
     t.integer  "user_id"
     t.datetime "created_at"
     t.datetime "updated_at"

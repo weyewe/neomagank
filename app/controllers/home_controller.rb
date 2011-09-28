@@ -3,5 +3,6 @@ class HomeController < ApplicationController
     @profile = current_user.profile
     @work_experience = WorkExperience.new
     @skill = Skill.new
+    @education = Education.new
   end
 end

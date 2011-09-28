@@ -1,5 +1,7 @@
 require 'time'
 module ApplicationHelper
+  
+  # the object has to respond to starting_date end ending_date methods
   def give_interval(work_experience)
     result = ""
     if work_experience.starting_date.nil? 

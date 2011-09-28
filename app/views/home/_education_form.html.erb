@@ -1,0 +1,55 @@
+<% class_value = "" %>
+<% if education.new_record? %>
+  <% class_value = "new-form"%>
+<% else %>
+  <% class_value = "edit-form"%>
+<% end %>
+
+<%= form_for education , :html => {:class=>"uniForm ajaxform hidden cv-section-form #{class_value}" } do |f| %>
+   <fieldset class="inlineLabels">
+     <div class="ctrlHolder">
+       <%= f.label :institution_name, "Nama Institusi" %>
+       <%= f.text_field :institution_name,  :size => "35", :class => "textInput" %>
+     </div>
+     <div class="ctrlHolder">
+        <%= f.label :degree, "Jurusan" %>
+        <%= f.text_field :degree,  :size => "35", :class => "textInput" %>
+      </div>
+
+     
+     <div class="ctrlHolder">
+       <%=  f.label :starting_date , "Mulai" %>
+       <%= f.date_select :starting_date, {
+            :default => Date.today,  :discard_day => true,
+            :order => [:month,  :year], :start_year => Date.today.year, 
+            :end_year => Date.today.year - 20  , 
+            :prompt => { :day => 'Select day', :month => 'Select month', :year => 'Select year' }
+          }, 
+           {:style => "width:150px; margin-right:20px;"} %>
+       <p class="formHint">Tanggal mulai bekerja</p>
+     </div>
+     
+     <div class="ctrlHolder">
+        <%=  f.label :ending_date , "Lulus" %>
+        <%= f.date_select :ending_date, {
+             :default => Date.today,  :discard_day => true,
+             :order => [:month,  :year], :start_year => Date.today.year, 
+             :end_year => Date.today.year - 20 , 
+             :prompt => { :day => 'Select day', :month => 'Select month', :year => 'Select year' }
+           }, 
+            {:style => "width:150px; margin-right:20px;"} %>
+        <p class="formHint">Tanggal selesai bekerja. Jika masih bekerja, tidak perlu diisi.</p>
+      </div>
+         
+         
+
+     <div class="ctrlHolder">
+       <%= f.label :description, "Deskripsi Kuliah" %>
+       <%= f.text_area :description,  :rows => "25", :cols=> "25" %>
+     </div>
+     
+     <div class="buttonHolder"><button type="submit" class="primaryAction">Submit</button></div>
+   </fieldset>
+
+<% end %>
+

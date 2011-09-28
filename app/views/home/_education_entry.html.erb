@@ -1,0 +1,25 @@
+<li class="cv-item fixed" id="education-<%= education.id %>">
+
+	<h4 class="appendix"><%= give_interval( education )%></h4>
+	
+  <div class="cv-item-content">
+    <h2><%= education.institution_name %></h2>
+    <h3><%= education.degree%></h3>
+
+    <br />
+    <p>Donec condimentum congue scelerisque. Etiam accumsan, magna a auctor vestibulum, nibh eros elementum
+      risus, ut lacinia nulla dui in leo. Nullam tristique, metus at sollicitudin posuere, ante erat congue
+      risus, ac pretium lectus leo vitae.
+    </p>
+
+  </div>	
+  
+  <div class="sub-actions">
+    <a href="#" class="action-button edit">edit</a>
+    <a href="#" class="action-button cancel hidden">cancel</a>
+  </div>
+  
+  <%= render :partial => "home/education_form", :locals => {:education => education} %>
+  
+	 
+</li>

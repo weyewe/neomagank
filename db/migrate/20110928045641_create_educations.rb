@@ -5,6 +5,7 @@ class CreateEducations < ActiveRecord::Migration
       t.date :starting_date
       t.date :ending_date
       t.text :description
+      t.string :degree
       
       t.integer :user_id
 
