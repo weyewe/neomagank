@@ -1,6 +1,8 @@
 require 'time'
 module ApplicationHelper
   
+
+  
   # the object has to respond to starting_date end ending_date methods
   def give_interval(work_experience)
     result = ""
@@ -29,4 +31,23 @@ module ApplicationHelper
     
     return "l-#{proficiency}"
   end
+  
+
+  def transloadit_value_profile_json( resource )
+    value = {}
+    value["auth"] = {
+      "key" => "a919ae5378334f20b8db4f7610cdd1a7"
+    }
+
+    value["template_id"] = "e576fa9a05004f98b0300ea12e2e2c20"
+    if resource.new_record? 
+      value["redirect_url"] = profiles_url
+    else
+      value["redirect_url"] = profile_url( resource  )
+    end
+    value["notify_url"] = "http://google.com"
+    value.to_json
+  end
+  
+  
 end

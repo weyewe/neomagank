@@ -10,7 +10,8 @@
 //= require tipsy/jquery.tipsy
 //= require prettyphoto/jquery.prettyPhoto
 //= require uni-form.jquery.min
-//= require jquery.prettyLoader.js
+//= require jquery.prettyLoader
+//= require jquery.Jcrop.min
 
 
 
@@ -18,7 +19,7 @@ $(document).ready( function(){
   // hovering for those without sub-actions
 
   
-  $("div.cv-section").live({
+  $("div.cv-section, div.portfolio-index-wrapper").live({
     mouseenter:
     function(){
       $("div.actions, div.super-actions", $(this)).show();
@@ -120,7 +121,27 @@ $(document).ready( function(){
     return false;
   });
   
+  // to add the first profile pic
+  $("a#picture-of-you").live('click', function(){
+    var $this = $(this);
+    if ( $this.hasClass("trigger-profile-form") ){
+      console.log("Shit, it has it");
+      $("#profile-pic-form").fadeIn();
+    }
+    
+    return false;
+  });
   
+  
+  
+  $('#portfolio .portfolio-item img').insetBorder({
+	  inset : 10,
+	  borderColor : '#fff',
+	  speed : 250,
+	  borderType : 'solid'
+	});
+	
+	
 });
 
 /* This function toggleEntry is specific for Edit-only button*/

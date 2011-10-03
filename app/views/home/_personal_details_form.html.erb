@@ -1,5 +1,7 @@
 <%= form_for profile , :html => {:class => "ajaxform uniForm hidden cv-section-form", :id => "personal-details-form"} do |f| %>
   <fieldset class="inlineLabels">
+    <input id="personal_details_update" name="personal_details_update" type="hidden" 
+          value="VUBJKB23UIVI1UU1VOBVI@" />
     <div class="ctrlHolder">
       <%= f.label :name, "Nama" %>
       <%= f.text_field :name,  :size => "35", :class => "textInput" %>

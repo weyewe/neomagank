@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110928045641) do
+ActiveRecord::Schema.define(:version => 20111003121034) do
 
   create_table "educations", :force => true do |t|
     t.string   "institution_name"
@@ -20,6 +20,27 @@ ActiveRecord::Schema.define(:version => 20110928045641) do
     t.text     "description"
     t.string   "degree"
     t.integer  "user_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "portfolio_images", :force => true do |t|
+    t.integer  "portfolio_id"
+    t.text     "image_url"
+    t.text     "show_image_url"
+    t.text     "teaser_image_url"
+    t.string   "teaser"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "portfolios", :force => true do |t|
+    t.integer  "user_id"
+    t.string   "title"
+    t.text     "description"
+    t.text     "teaser"
+    t.text     "teaser_image_url"
+    t.text     "show_image_url"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

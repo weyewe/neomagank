@@ -1,7 +1,7 @@
 <% updated_entry = "" %>
 <% updated_form = "" %>
 
-<% if @about_me_update %>
+<% if @update_type == :about_me_update %>
   <% updated_entry =  escape_javascript(render :partial => "home/about_me_entry", 
             :locals=> {:profile => @profile}) %>
   <% updated_form =  escape_javascript(render :partial => "home/about_me_form", 
@@ -12,7 +12,7 @@
   });
 
     
-<% else %>
+<% elsif @update_type == :personal_details_update %>
 /* Personal detail update*/
   <% new_name = escape_javascript( "<h1 id='name'>#{@profile.name}</h1>").html_safe %>
   <% updated_entry =  escape_javascript(render :partial => "home/personal_details_entry", 
@@ -33,5 +33,33 @@
     
 		
   });
+<% elsif @update_type == :profile_pic_update %>
+
+// replace #new_profile_image_form with the crop form and the resized original image
+// render the cropper
+  <% cropper = escape_javascript( render :partial => "shared/cropper", 
+                :locals => {:resource => @profile}) %>
+                
+  $(document).ready(function(){
+    console.log("Fucking yeah, we are here");
+    $("#profile-pic-form").replaceWith('<%= cropper %>');
+    jQuery('#cropbox').Jcrop( {
+        onChange: update_crop,  
+        onSelect: update_crop,  
+        setSelect: [0, 0, 500, 500],  
+        aspectRatio: 1
+        });  
+    function update_crop(coords) {  
+      jQuery('#crop_x').val(coords.x);  
+      jQuery('#crop_y').val(coords.y);  
+      jQuery('#crop_w').val(coords.w);  
+      jQuery('#crop_h').val(coords.h);    
+    }
+  });
+
+
+
+
+
 <% end %>
 

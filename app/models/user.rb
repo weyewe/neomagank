@@ -12,6 +12,8 @@ class User < ActiveRecord::Base
   has_many :skills
   has_many :educations
   
+  has_many :portfolios
+  
   after_create :create_profile
   
   

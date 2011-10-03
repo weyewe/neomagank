@@ -1,0 +1,32 @@
+
+<div class="hidden" id="profile-pic-form" style="clear:both; border:1px solid rgb(230,230,230);">
+  <%= form_for( resource, :url => 'http://api2.transloadit.com/assemblies', :html => { :multipart => true, 
+      :id=>"new_profile_image_form" , :class => "uniForm ajaxform " }) do |f| %>
+      <input type="hidden" name="params" value="<%= transloadit_value_profile_json(resource) %>" />
+    <fieldset>
+      <input id="profile_pic_update" name="profile_pic_update" type="hidden" 
+            value="VUBJKB23UIVI1UU1VOBVI@" />
+      <div class="ctrlHolder">
+        <%= f.label :profile_pic , "Upload profile picture anda:"%>
+        <%= f.file_field :profile_pic, :size => "35", :class => "fileUpload"%>
+      </div>
+
+      <div class="buttonHolder"><button type="submit" class="primaryAction">Submit</button></div>
+    </fieldset>
+  <% end %>
+  <%#= render :partial => "shared/cropper", :locals => {:resource => @profile}%>
+
+    
+</div>
+
+<script type="text/javascript">
+var tlProtocol = (('https:' == document.location.protocol) ? 'https://' : 'http://');
+document.write(unescape("%3Cscript src='" + tlProtocol + "assets.transloadit.com/js/jquery.transloadit2.js' type='text/javascript'%3E%3C/script%3E"));
+</script>
+<script type="text/javascript">
+   // We call .transloadit() after the DOM is initialized:
+   jQuery(document).ready(function() {
+     jQuery('#new_profile_image_form').transloadit({wait: true});
+   });
+</script>
+

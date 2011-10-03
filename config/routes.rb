@@ -3,11 +3,20 @@ Neomagank::Application.routes.draw do
   devise_for :users
 
   root :to => 'home#show'
+  match 'profile/execute_crop_profile_pic' => "profiles#crop", :as => :crop_profile_image
   
+  resources :users do
+    resources :portfolios
+  end
+
+
   resources :profiles
   resources :work_experiences
   resources :skills
   resources :educations
+  resources :portfolios
+  
+  
   # The priority is based upon order of creation:
   # first created -> highest priority.
 

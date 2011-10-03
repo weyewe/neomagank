@@ -63,6 +63,19 @@
 			// tooltips
 			$('.tip').tipsy({gravity: 'e'});	//  apply class .tip to any <a> tag to make it's  title be displayed like a tooltip
 			
+			// $('#picture-of-you').tipsy({
+			//         html: true , 
+			//         gravity: 'n',
+			//         title: 'original-title'
+			//       });
+      $('#picture-of-you').tipsy("show");
+      
+      $('#picture-of-you').tipsy({
+        title: 'html-title',
+        fade :true,
+        html: true
+      });
+      
 			// lightbox
 			$("a[rel^='prettyPhoto']").prettyPhoto({
 				theme: 'light_square',
@@ -79,6 +92,7 @@
 	/* ]]> */			
 	</script> 
 	
+	<%= yield :head %>
 </head>
 
 
@@ -97,8 +111,16 @@
 	</noscript>
 	
 	<div id="wrap">
-	
-    <%= yield %>
+	  <%= render :partial => "home/header" %>
+	  <div id="content" class="fixed">
+      <%= yield %>
+    </div>
+    
+    <%= render :partial => "layouts/footer"%>
+
+
+    <a href="javascript:window.print()" id="print" title="Print CV" class="tip">Print CV</a>
+    <a href="#" id="download" title="Download CV" class="tip">Download CV</a>
     
     
 		

@@ -1,0 +1,11 @@
+portfolio:
+  auth_key: a919ae5378334f20b8db4f7610cdd1a7
+  template_id: 8595a33c8a8c4ac591b221cac9f478dd
+  return_value: 
+    - "portfolio_teaser"
+    - "portfolio_show"
+slideshow:
+  auth_key: a919ae5378334f20b8db4f7610cdd1a7
+  template_id: e576fa9a05004f98b0300ea12e2e2c20
+  return_value:
+    - "avatar_profile""

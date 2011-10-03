@@ -1,0 +1,88 @@
+
+<% content_for :head  do %>
+  <%#= stylesheet_link_tag "css.easyslider"%>
+  <%= javascript_include_tag "jquery.insetBorderEffect.min"%>
+<% end %>  
+
+<div class="portfolio-index-wrapper cv-section">
+  <div class="super-actions" >
+    <a class="action-button add" href="#">add</a>
+    <a class="action-button cancel hidden" href="#">cancel</a>
+  </div>
+  
+  
+  <h2 class="title">Portfolio</h2>	
+  
+  <%= render :partial => "portfolio_form", :locals => {:portfolio => @portfolio, :user => current_user} %>
+  
+  
+  <div id="portfolio">
+    <div class="portfolio-item col-1 fixed">
+      <div class="col-2 float-left padded-right">
+        <a href="_content/640x550-placeholder.jpg" class="bordered" rel="prettyPhoto[portfolio]">
+          <%= image_tag "456x211-placeholder.jpg" , :width => "456", :height => "211"%>			
+        </a>
+      </div>
+      <div class="col-3 float-right">
+        <br />
+        <h2>Lorem ipsum dolor</h2>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla eu enim sit
+          amet quam dapibus sodales nec id nisl. Ut condimentum purus.
+        </p>
+
+        <p><a href="portfolio-inner-page.html" class="read-more">Read More</a></p>
+      </div>
+    </div><!-- end .portfolio-item -->
+
+    <div class="portfolio-item col-1 fixed">
+      <div class="col-2 float-left padded-right">
+        <a href="_content/640x550-placeholder.jpg" class="bordered" rel="prettyPhoto[portfolio]">
+          <!-- <img src="_content/456x211-placeholder.jpg" width="456" height="211" alt="" /> -->
+          <%= image_tag "456x211-placeholder.jpg" , :width => "456", :height => "211"%>	
+        </a>
+      </div>
+      <div class="col-3 float-right">
+        <br />
+        <h2>Pellentesque tempus, ipsum sed</h2>
+        <p>Nam volutpat molestie rhoncus. Mauris imperdiet, quam in fringilla
+          dapibus, nulla nulla pretium libero, id egestas.
+        </p>
+        <p><a href="portfolio-inner-page.html" class="read-more">Read More</a></p>
+      </div>
+    </div><!-- end .portfolio-item -->
+
+    <div class="portfolio-item col-1 fixed">
+      <div class="col-2 float-left padded-right">
+        <a href="_content/640x550-placeholder.jpg" class="bordered" rel="prettyPhoto[portfolio]">
+          <%= image_tag "456x211-placeholder.jpg" , :width => "456", :height => "211"%>	
+        </a>
+      </div>
+      
+      <div class="col-3 float-right">
+        <br />
+        <h2>Curabitur varius ultricies</h2>
+
+        <p>Placerat, metus a feugiat sollicitudin, nunc lacus ornare nunc,
+          sit amet dictum est justo quis purus. Phasellus elementum mollis magna.</p>
+
+        <p><a href="portfolio-inner-page.html" class="read-more">Read More</a></p>
+      </div>
+    </div><!-- end .portfolio-item -->
+
+    <div class="col-1 portfolio-pagination fixed">
+      <ul>
+        <li><a href="#">&laquo; Prev</a></li>
+        <li><a href="#" class="active">1</a></li>
+        <li><a href="#">2</a></li>
+        <li><a href="#">3</a></li>
+        <li><a href="#">4</a></li>
+        <li><a href="#">5</a></li>
+        <li><a href="#">Next &raquo;</a></li>
+      </ul>
+    </div><!-- end portfolio-pagination -->
+
+  </div><!-- end #portfolio -->
+
+
+  
+</div> <!-- portfolio wrapper -->

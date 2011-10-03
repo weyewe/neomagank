@@ -7,6 +7,8 @@ gem 'rails', '3.1.0'
 
 gem 'mysql2'
 gem 'devise'
+gem 'aws-s3'
+gem 'transloadit'
 gem 'pg'
 gem 'thin'
 

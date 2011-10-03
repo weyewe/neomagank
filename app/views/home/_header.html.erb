@@ -5,10 +5,23 @@
 	</div>
 	
 	<div id="personal-info" class="fixed">
-	
-		<a id="picture-of-you"  href="http://www.ibukitakartini.com/wp-content/files_mf/lunamaya2.jpg" title="Luna Maya" rel="prettyPhoto">
-		    <%= image_tag "100x100-placeholder.jpg"%>
-      <!-- <img src="_content/100x100-placeholder.jpg" width="100" height="100" alt="" /> -->
+
+	  
+	  <% text = "" %>
+	  <% if @profile.cropped_profile_pic.nil? %>
+	    <% text =  "Belum ada profile pic? <br /><a><b>Click saja!</b></a>" %>
+	  <% else %>
+	    <% text = "Mau ganti profile pic? <br /><a><b>Click saja!</b></a>"%>
+	  <% end %>
+	  
+		<a id="picture-of-you"  href="http://www.ibukitakartini.com/wp-content/files_mf/lunamaya2.jpg" 
+		   rel="<%#= rel %>"
+		   html-title="<%= text.html_safe %>"  class="trigger-profile-form">
+       <% if @profile.cropped_profile_pic.nil? %>
+        <%= image_tag "100x100-placeholder.jpg"%>
+       <% else %>
+        <%= image_tag "#{@profile.cropped_profile_pic}", :width => "100", :height => "100"%>
+       <% end %>
 		</a>
 		
 		<h1 id="name"><%= @profile.name || "Your name here"%></h1>
@@ -18,15 +31,21 @@
 	<ul id="nav" class="fixed">
 	  <li><a href="portfolio.html">Gallery</a></li>
 		<li>/</li>
-		<li><a href="index.html" class="active">Resume</a></li>
+		<li>
+		  <%= link_to "Resume", root_url, :class => "active"%>
+		</li>
 		<li>/</li>
-		<li><a href="portfolio.html">Portfolio</a></li>
+		<li>
+		  <%= link_to "Portfolio", portfolios_url %>
+		</li>
 		<li>/</li>
 		<li><a href="portfolio.html">Testimonial</a></li>
 		<li>/</li>
 		<li><a href="contact.html">Account</a></li>
 	</ul><!-- end #nav -->
 
+  
+  
 	<div class="divider"></div>
 	
 </div><!-- end #header -->

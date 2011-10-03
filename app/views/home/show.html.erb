@@ -1,9 +1,11 @@
 
-<%= render :partial => "header" %>
+
 <%#= render :partial => "layouts/content" %>
 
-<div id="content" class="fixed">
+
 <!-- ////////////////////////////////////////////////////////////////////////////////////// -->
+  <%= render :partial => "profile_pic_form", :locals => {:resource => @profile}%>
+
 
 	<div id="cv-3">
 	
@@ -25,9 +27,4 @@
 
 	
 <!-- ////////////////////////////////////////////////////////////////////////////////////// -->	
-</div><!-- end #content -->
-<%= render :partial => "layouts/footer"%>
 
-
-<a href="javascript:window.print()" id="print" title="Print CV" class="tip">Print CV</a>
-<a href="#" id="download" title="Download CV" class="tip">Download CV</a>

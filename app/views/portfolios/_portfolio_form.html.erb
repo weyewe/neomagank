@@ -1,0 +1,52 @@
+<% class_value = "" %>
+<% if portfolio.new_record? %>
+  <% class_value = "new-form"%>
+<% else %>
+  <% class_value = "edit-form"%>
+<% end %>
+
+<%= form_for [user, portfolio] , :html => {:class=>"uniForm ajaxform hidden cv-section-form #{class_value}" , :id => "new_portfolio_form"} do |f| %>
+  <fieldset class="inlineLabels">
+    <div class="ctrlHolder">
+      <%= f.label :title, "Portfolio Title" %>
+      <%= f.text_field :title,  :size => "35", :class => "textInput" %>
+    </div>
+
+    <div class="ctrlHolder">
+      <%= f.label :description, "Deskripsi" %>
+      <%= f.text_area :description,  :rows => "25", :cols=> "25" %>
+    </div>
+    
+    <div class="ctrlHolder">
+      <%= f.label :teaser_image_url , "Upload main picture"%>
+      <%= f.file_field :teaser_image_url, :size => "35", :class => "fileUpload"%>
+    </div>
+    
+    
+    
+
+    
+
+
+    <div class="buttonHolder"><button type="submit" class="primaryAction">Submit</button></div>
+  </fieldset>
+
+<% end %>
+
+
+
+
+<script type="text/javascript">
+var tlProtocol = (('https:' == document.location.protocol) ? 'https://' : 'http://');
+document.write(unescape("%3Cscript src='" + tlProtocol + "assets.transloadit.com/js/jquery.transloadit2.js' type='text/javascript'%3E%3C/script%3E"));
+</script>
+<script type="text/javascript">
+   // We call .transloadit() after the DOM is initialized:
+   jQuery(document).ready(function() {
+     jQuery('#new_portfolio_form').transloadit({wait: true});
+   });
+</script>
+
+
+
+
