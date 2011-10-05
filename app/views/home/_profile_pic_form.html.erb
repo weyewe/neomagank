@@ -25,6 +25,7 @@ document.write(unescape("%3Cscript src='" + tlProtocol + "assets.transloadit.com
 </script>
 <script type="text/javascript">
    // We call .transloadit() after the DOM is initialized:
+   console.log("haha, transloadit for profile pic is initialized");
    jQuery(document).ready(function() {
      jQuery('#new_profile_image_form').transloadit({wait: true});
    });

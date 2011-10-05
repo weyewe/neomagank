@@ -1,0 +1,102 @@
+
+
+<% content_for :head  do %>
+  <%= stylesheet_link_tag "css.easyslider"%>
+  <%= javascript_include_tag "jquery.easyslider"%>
+  <script type="text/javascript">
+    $(document).ready(function(){
+      $("#slide2").easySlider({
+  			auto: true, 
+  			continuous: true,
+  			speed: 800,
+  			controlsShow: true,
+  			numeric: true,
+  			numericId: 'controls'
+  		});
+    });
+  	
+  </script>
+<% end %>
+<h2 class="title"><%= @portfolio.title %></h2>	
+<div id="portfolio">
+  
+  
+  <div class="portfolio-item col-1 fixed">
+		
+		<div class="col-2 float-left padded-right">
+			
+      <%= render :partial => "portfolio_image_form", 
+        :locals => {:portfolio => @portfolio, 
+                    :portfolio_image => PortfolioImage.new }%>
+                    
+		</div>
+	</div><!-- end .portfolio-item -->
+	
+	
+
+
+
+	<div class="portfolio-item col-1 fixed">
+	
+			<div class="slider-wrap-2">
+				<div class="slider-2" id="slide2">
+					<ul>				
+					  <% @images.each do |image| %>
+  					  <li>
+  						  <%= image_tag "#{image.image_url}" , :width => "678", :height => "312"%>
+  						</li>
+					  <% end %>
+            <!-- <li>
+              <%= image_tag "678x312-placeholder.jpg" , :width => "678", :height => "312"%>
+            </li>
+            <li>
+              <%= image_tag "678x312-placeholder.jpg" , :width => "678", :height => "312"%>
+            </li>
+            <li>
+              <%= image_tag "678x312-placeholder.jpg" , :width => "678", :height => "312"%>
+            </li>
+            <li>
+              <%= image_tag "678x312-placeholder.jpg" , :width => "678", :height => "312"%>
+            </li>
+            <li>
+              <%= image_tag "678x312-placeholder.jpg" , :width => "678", :height => "312"%>
+            </li> -->
+	          <!-- <li><img src="_content/678x312-placeholder.jpg" width="678" height="312" alt="" /></li>
+	           <li><img src="_content/678x312-placeholder.jpg" width="678" height="312" alt="" /></li>
+	           <li><img src="_content/678x312-placeholder.jpg" width="678" height="312" alt="" /></li>
+	           <li><img src="_content/678x312-placeholder.jpg" width="678" height="312" alt="" /></li> -->
+					</ul>
+				</div><!-- end .slider -->
+			</div><!-- end .slider-wrap -->	
+		
+	</div>
+	
+	<div class="portfolio-item col-1 fixed">
+		
+		<div class="col-2 float-left padded-right">
+			
+			<h2>Description:</h2>
+			
+			<p>
+			  <%= @portfolio.description %>
+			</p>
+
+		</div>
+		<div class="col-3 float-left">
+      <!-- <p><strong>Project Details:</strong></p>
+      
+      <ul>
+        <li>Donec imperdiet nunc</li>
+        <li>Id felis faucibus eu tempor</li>
+        <li>Sem tincidunt fusce a orci in</li>
+        <li>Risus ultrices pharetra</li>
+      </ul>
+      
+      <p><strong>Live preview:</strong>
+         <br /><a href="#">www.sitelink.com</a></p>     
+       -->
+    </div>
+		
+	</div><!-- end .portfolio-item -->
+
+</div><!-- end #portfolio -->	

@@ -14,6 +14,12 @@ class PortfoliosController < ApplicationController
   end
   
   def show
+    @profile = current_user.profile
+    @portfolio = Portfolio.find( params[:id])
+    @images = PortfolioImage.find(:all, :conditions => {
+      :portfolio_id => @portfolio.id ,
+      :image_type => "show"
+    })
   end
   
 end

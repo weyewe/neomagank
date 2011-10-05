@@ -2,6 +2,16 @@
 <% content_for :head  do %>
   <%#= stylesheet_link_tag "css.easyslider"%>
   <%= javascript_include_tag "jquery.insetBorderEffect.min"%>
+  <script type="text/javascript">
+  $(document).ready(function(){
+    $('#portfolio .portfolio-item img').insetBorder({
+  	  inset : 10,
+  	  borderColor : '#fff',
+  	  speed : 250,
+  	  borderType : 'solid'
+  	});
+  });
+  </script>
 <% end %>  
 
 <div class="portfolio-index-wrapper cv-section">

@@ -5,32 +5,19 @@
   <% class_value = "edit-form"%>
 <% end %>
 
-<%= form_for [user, portfolio] , :url => 'http://api2.transloadit.com/assemblies',
+<%= form_for [portfolio, portfolio_image] , :url => 'http://api2.transloadit.com/assemblies',
         :html => {:class=>"uniForm  hidden cv-section-form #{class_value}" , 
-                  :id => "new_portfolio_form", :multipart => true} do |f| %>
-  <input type="hidden" name="params" value="<%= transloadit_value_portfolio_json(portfolio) %>" />
+                  :id => "new_portfolio_image_form", :multipart => true} do |f| %>
+  <input type="hidden" name="params" 
+      value="<%= transloadit_value_portfolio_json(portfolio, portfolio_image) %>" />
   <fieldset class="inlineLabels">
-    <div class="ctrlHolder">
-      <%= f.label :title, "Portfolio Title" %>
-      <%= f.text_field :title,  :size => "35", :class => "textInput" %>
-    </div>
 
-    <div class="ctrlHolder">
-      <%= f.label :description, "Deskripsi" %>
-      <%= f.text_area :description,  :rows => "25", :cols=> "25" %>
-    </div>
     
     <div class="ctrlHolder">
-      <%= f.label :teaser_image_url , "Upload main picture"%>
-      <%= f.file_field :teaser_image_url, :size => "35", :class => "fileUpload"%>
+      <%= f.label :image_url , "Upload main picture"%>
+      <%= f.file_field :image_url, :size => "35", :class => "fileUpload"%>
     </div>
     
-    
-    
-
-    
-
-
     <div class="buttonHolder"><button type="submit" class="primaryAction">Submit</button></div>
   </fieldset>
 
@@ -46,7 +33,7 @@ document.write(unescape("%3Cscript src='" + tlProtocol + "assets.transloadit.com
 <script type="text/javascript">
    // We call .transloadit() after the DOM is initialized:
    jQuery(document).ready(function() {
-     jQuery('#new_portfolio_form').transloadit({wait: true});
+     jQuery('#new_portfolio_image_form').transloadit({wait: true});
    });
 </script>
 

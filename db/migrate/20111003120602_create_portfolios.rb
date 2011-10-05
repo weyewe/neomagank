@@ -5,8 +5,7 @@ class CreatePortfolios < ActiveRecord::Migration
       t.string :title
       t.text :description
       t.text :teaser
-      t.text :teaser_image_url
-      t.text :show_image_url
+
       
 
       t.timestamps

@@ -18,13 +18,30 @@ class Portfolio < ActiveRecord::Base
     transloadit_results = ActiveSupport::JSON.decode(params[:transloadit]).symbolize_keys[:results]
 
     if transloadit_results.length != 0 
-      self.destroy_current_images
-      for type in TRANSLOADIT["story"]["return_value"]
-        self.story_images.create( :image_type => type , 
-        :url => get_url_from_transloadit( transloadit_results, type ) )
+      # self.destroy_current_images
+      for type in TRANSLOADIT["portfolio_image"]["return_value"]
+        self.portfolio_images.create( :image_type => type , 
+        :image_url => get_url_from_transloadit( transloadit_results, type ) ,
+        :is_first => true)
       end
     end
   end
+  
+  
+  def destroy_current_images
+    self.portfolio_images.each do |f |
+      f.destroy
+    end
+  end
+  
+  def get_url_from_transloadit( transloadit_results, type)
+    a = transloadit_results[type]  
+    a.first["url"]
+  end
+  
+  
+  
+  
   
   
 end

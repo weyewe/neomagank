@@ -50,4 +50,32 @@ module ApplicationHelper
   end
   
   
+  def transloadit_value_portfolio_json( portfolio , portfolio_image )
+    value = {}
+    value["auth"] = {
+      "key" => "a919ae5378334f20b8db4f7610cdd1a7"
+    }
+
+    value["template_id"] = "8595a33c8a8c4ac591b221cac9f478dd"
+    
+    if portfolio_image.nil?
+      if portfolio.new_record? 
+        value["redirect_url"] = portfolios_url
+      else
+        value["redirect_url"] = portfolio_url( portfolio  )
+      end
+    else
+      if portfolio_image.new_record? 
+        value["redirect_url"] = portfolio_portfolio_images_url( portfolio )
+      else
+        value["redirect_url"] = portfolio_portfolio_image( portfolio , portfolio_image )
+      end
+    end
+    
+    value.to_json
+  end
+  
+  
+  
+  
 end

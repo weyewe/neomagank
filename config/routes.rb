@@ -9,6 +9,9 @@ Neomagank::Application.routes.draw do
     resources :portfolios
   end
 
+  resources :portfolios do 
+    resources :portfolio_images
+  end
 
   resources :profiles
   resources :work_experiences

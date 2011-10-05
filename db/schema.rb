@@ -26,10 +26,9 @@ ActiveRecord::Schema.define(:version => 20111003121034) do
 
   create_table "portfolio_images", :force => true do |t|
     t.integer  "portfolio_id"
+    t.string   "image_type"
     t.text     "image_url"
-    t.text     "show_image_url"
-    t.text     "teaser_image_url"
-    t.string   "teaser"
+    t.boolean  "is_first",     :default => false
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -39,8 +38,6 @@ ActiveRecord::Schema.define(:version => 20111003121034) do
     t.string   "title"
     t.text     "description"
     t.text     "teaser"
-    t.text     "teaser_image_url"
-    t.text     "show_image_url"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

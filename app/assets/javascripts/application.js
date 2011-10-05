@@ -134,12 +134,7 @@ $(document).ready( function(){
   
   
   
-  $('#portfolio .portfolio-item img').insetBorder({
-	  inset : 10,
-	  borderColor : '#fff',
-	  speed : 250,
-	  borderType : 'solid'
-	});
+
 	
 	
 });
