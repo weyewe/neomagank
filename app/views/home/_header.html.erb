@@ -28,15 +28,16 @@
 		<h2 id="what-you-do">Automobile SPG</h2>
 	</div><!-- end #personal-info -->
 			
+			
 	<ul id="nav" class="fixed">
 	  <li><a href="portfolio.html">Gallery</a></li>
 		<li>/</li>
 		<li>
-		  <%= link_to "Resume", root_url, :class => "active"%>
+		  <%= link_to "Resume", root_url, :class => "#{get_active_nav(params, 'resume') }"%>
 		</li>
 		<li>/</li>
 		<li>
-		  <%= link_to "Portfolio", portfolios_url %>
+		  <%= link_to "Portfolio", portfolios_url, :class => "#{get_active_nav(params, 'portfolio') }" %>
 		</li>
 		<li>/</li>
 		<li><a href="portfolio.html">Testimonial</a></li>

@@ -1,0 +1,18 @@
+
+<div class="slider-2" id="slide2">
+  <ul>				
+    
+    <% if images.length !=  0 %>
+      <% images.each do |image| %>
+        <li>
+          <%= image_tag "#{image}" , :width => "678", :height => "312"%>
+        </li>
+      <% end %>
+    <% else %>
+      <li>
+        <%= image_tag "#{DEFAULT_PORTFOLIO_SHOW_IMAGE}" , :width => "678", :height => "312"%>
+      </li>
+    <% end %>
+
+  </ul>
+</div><!-- end .slider -->

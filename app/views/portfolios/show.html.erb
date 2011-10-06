@@ -7,7 +7,7 @@
     $(document).ready(function(){
       $("#slide2").easySlider({
   			auto: true, 
-  			continuous: true,
+  			continuous: false,
   			speed: 800,
   			controlsShow: true,
   			numeric: true,
@@ -23,7 +23,7 @@
   
   <div class="portfolio-item col-1 fixed">
 		
-		<div class="col-2 float-left padded-right">
+		<div class="imageFormWrapper" style="border : 1px solid #E6E6E6; clear:both; display:block;">
 			
       <%= render :partial => "portfolio_image_form", 
         :locals => {:portfolio => @portfolio, 
@@ -38,35 +38,9 @@
 
 	<div class="portfolio-item col-1 fixed">
 	
-			<div class="slider-wrap-2">
-				<div class="slider-2" id="slide2">
-					<ul>				
-					  <% @images.each do |image| %>
-  					  <li>
-  						  <%= image_tag "#{image.image_url}" , :width => "678", :height => "312"%>
-  						</li>
-					  <% end %>
-            <!-- <li>
-              <%= image_tag "678x312-placeholder.jpg" , :width => "678", :height => "312"%>
-            </li>
-            <li>
-              <%= image_tag "678x312-placeholder.jpg" , :width => "678", :height => "312"%>
-            </li>
-            <li>
-              <%= image_tag "678x312-placeholder.jpg" , :width => "678", :height => "312"%>
-            </li>
-            <li>
-              <%= image_tag "678x312-placeholder.jpg" , :width => "678", :height => "312"%>
-            </li>
-            <li>
-              <%= image_tag "678x312-placeholder.jpg" , :width => "678", :height => "312"%>
-            </li> -->
-	          <!-- <li><img src="_content/678x312-placeholder.jpg" width="678" height="312" alt="" /></li>
-	           <li><img src="_content/678x312-placeholder.jpg" width="678" height="312" alt="" /></li>
-	           <li><img src="_content/678x312-placeholder.jpg" width="678" height="312" alt="" /></li>
-	           <li><img src="_content/678x312-placeholder.jpg" width="678" height="312" alt="" /></li> -->
-					</ul>
-				</div><!-- end .slider -->
+			<div class="slider-wrap-2" id="sliderWrapper">
+			  <%= render :partial => "slider", :locals => {:images => @images }%>
+	
 			</div><!-- end .slider-wrap -->	
 		
 	</div>

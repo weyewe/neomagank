@@ -76,6 +76,18 @@ module ApplicationHelper
   end
   
   
+  def get_active_nav(params, selector)
+    if params[:controller] == "portfolios" && selector == "portfolio"
+      return "active"
+    end
+    
+    if params[:controller] == "home" && selector == "resume"
+      return "active"
+    end
+    
+  end
+  
+  
   
   
 end

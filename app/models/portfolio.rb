@@ -7,9 +7,34 @@ class Portfolio < ActiveRecord::Base
     portfolio.user_id = current_user.id
     portfolio.save
     if params[:transloadit]
-      portfolio.assign_transloadit( params )
+      portfolio.assign_transloadit( params , portfolio)
     end
     portfolio
+  end
+  
+  def get_teaser_image
+    teaser_image = self.portfolio_images.find(:first, :conditions => {
+      :image_type => "teaser"
+    })
+    
+    if teaser_image.nil?
+      teaser_image = DEFAULT_PORTFOLIO_INDEX_IMAGE
+    else
+      teaser_image = teaser_image.image_url 
+    end
+    teaser_image
+  end
+  
+  def get_show_images
+    show_images = self.portfolio_images.find(:all, :conditions => {
+      :image_type => "show"
+    })
+    
+    if show_images.length != 0 
+      show_images =  show_images.map{ |x| x.image_url }
+    end
+
+    show_images
   end
   
   

@@ -1,0 +1,26 @@
+<div class="portfolio-item col-1 fixed">
+  <div class="col-2 float-left padded-right">
+    
+    <%= link_to portfolio_url(portfolio) , :class => "bordered" ,
+            :rel => "prettyPhoto[portfolio]" do %>
+      <%= image_tag  portfolio.get_teaser_image , :width =>"456", :height => "211"%>
+    <% end %>
+    
+    
+    <!-- <a href="_content/640x550-placeholder.jpg" class="bordered" rel="prettyPhoto[portfolio]">
+      <%= image_tag "456x211-placeholder.jpg" , :width => "456", :height => "211"%>     
+    </a> -->
+  </div>
+  <div class="col-3 float-right">
+    <br />
+    <h2>
+      <%= portfolio.title %>
+    </h2>
+    <p><%= portfolio.description %>
+    </p>
+
+    <p>
+      <%= link_to "See Portfolio", portfolio_url(portfolio), :class=>"read-more"%>
+      <!-- <a href="portfolio-inner-page.html" class="read-more">Read More</a> --></p>
+  </div>
+</div><!-- end .portfolio-item -->

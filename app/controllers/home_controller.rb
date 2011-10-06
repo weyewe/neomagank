@@ -5,4 +5,7 @@ class HomeController < ApplicationController
     @skill = Skill.new
     @education = Education.new
   end
+  
+  def show_public
+  end
 end

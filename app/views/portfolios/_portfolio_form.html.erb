@@ -8,7 +8,7 @@
 <%= form_for [user, portfolio] , :url => 'http://api2.transloadit.com/assemblies',
         :html => {:class=>"uniForm  hidden cv-section-form #{class_value}" , 
                   :id => "new_portfolio_form", :multipart => true} do |f| %>
-  <input type="hidden" name="params" value="<%= transloadit_value_portfolio_json(portfolio) %>" />
+  <input type="hidden" name="params" value="<%= transloadit_value_portfolio_json(portfolio, nil) %>" />
   <fieldset class="inlineLabels">
     <div class="ctrlHolder">
       <%= f.label :title, "Portfolio Title" %>
