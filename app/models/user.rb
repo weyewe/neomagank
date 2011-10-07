@@ -16,7 +16,9 @@ class User < ActiveRecord::Base
   
   after_create :create_profile
   
-  
+  def owns_profile( profile )
+    profile.user_id == self.id 
+  end
   
   
   

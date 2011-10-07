@@ -1,17 +1,27 @@
 <div class="cv-section col-1 fixed" id="technical-skills">
 
 	<h2 class="cv-section-name"> Technical Skills</h2>
-	<%= render :partial => "home/skill_form", :locals => {:skill => @skill}%>
+	<% if can_edit?(@profile)%>
+  	<%= render :partial => "home/skill_form", :locals => {:skill => @skill}%>
+  <% end %>
 	
 	<ul class="cv-section-items" id="skills">
-	  <% current_user.skills.order("created_at DESC").each do |skill| %>
-	    <%= render :partial => "skill_entry" , :locals => {:skill => skill} %>
-	  <% end%>
+	  <% if can_edit?(@profile) %>
+  	  <% current_user.skills.order("created_at DESC").each do |skill| %>
+  	    <%= render :partial => "skill_entry" , :locals => {:skill => skill} %>
+  	  <% end%>
+	  <% else %>
+	    <% @user.skills.order("created_at DESC").each do |skill| %>
+  	    <%= render :partial => "skill_entry" , :locals => {:skill => skill} %>
+  	  <% end%>
+	  <% end %>
 		
+		<% if can_edit?(@profile)%>
 		<div class="super-actions">
       <a href="#" class="action-button add">add</a>
       <a href="#" class="action-button cancel hidden">cancel</a>
     </div>
+    <% end %>
 		
 	</ul><!-- end .cv-section-items -->
 

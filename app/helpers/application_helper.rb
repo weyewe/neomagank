@@ -2,10 +2,16 @@ require 'time'
 module ApplicationHelper
   
   
-  def public_consumption?
+  def can_edit?( profile )
     if current_user.nil?
-    end 
-      
+      return false
+    end
+    
+    if current_user and current_user.owns_profile( profile )
+      return true
+    else
+      return false
+    end
   end
 
   

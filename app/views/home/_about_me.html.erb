@@ -6,11 +6,13 @@
 	  <%= render :partial => "about_me_entry" , :locals => {:profile => @profile}%>
 	</ul><!-- end .cv-section-items -->
 	
-	<%= render :partial => "about_me_form" %>
+	<% if can_edit?(@profile)%>
+  	<%= render :partial => "about_me_form" %>
 	
-	<div class="actions">
-    <a href="#" class="action-button edit">edit</a>
-    <a href="#" class="action-button cancel hidden">cancel</a>
-  </div>
+  	<div class="actions">
+      <a href="#" class="action-button edit">edit</a>
+      <a href="#" class="action-button cancel hidden">cancel</a>
+    </div>
+  <% end %>
 
 </div><!-- end .cv-section -->

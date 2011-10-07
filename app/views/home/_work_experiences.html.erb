@@ -1,20 +1,32 @@
 <div class="cv-section col-1 fixed">
 
 	<h2 class="cv-section-name">Work Experience</h2>
-	<%= render :partial => "work_experience_form" , :locals => {:work_experience => @work_experience}%>
+	<% if can_edit?(@profile)%>
+  	<%= render :partial => "work_experience_form" , :locals => {:work_experience => @work_experience}%>
+  <% end %>
 	
   
 
 	
 	<ul class="cv-section-items" id="work-experience">
-	  <% current_user.work_experiences.order("created_at DESC").each do |work_experience| %>
-	    <%= render :partial => "work_experience_entry" , :locals => {:work_experience => work_experience} %>
-	  <% end%>
+	  <% if can_edit?(@profile) %>
+  	  <% current_user.work_experiences.order("created_at DESC").each do |work_experience| %>
+  	    <%= render :partial => "work_experience_entry" , 
+  	          :locals => {:work_experience => work_experience} %>
+  	  <% end%>
+	  <% else %>
+	    <% @user.work_experiences.order("created_at DESC").each do |work_experience| %>
+  	    <%= render :partial => "work_experience_entry" , 
+  	          :locals => {:work_experience => work_experience} %>
+  	  <% end%>
+	  <% end %>
 	</ul><!-- end .cv-section-items -->
 
-  <div class="super-actions">
-    <a href="#" class="action-button add">add</a>
-    <a href="#" class="action-button cancel hidden">cancel</a>
-  </div>
+  <% if can_edit?(@profile)%>
+    <div class="super-actions">
+      <a href="#" class="action-button add">add</a>
+      <a href="#" class="action-button cancel hidden">cancel</a>
+    </div>
+  <% end %>
 
 </div><!-- end .cv-section -->

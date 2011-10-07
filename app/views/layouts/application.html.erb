@@ -111,9 +111,9 @@
 	</noscript>
 	
 	<div id="wrap">
-	  <% if current_user %>
+	  <%# if current_user %>
 	    <%= render :partial => "home/header" %>
-	  <% end %>
+	  <%# end %>
 	  <div id="content" class="fixed">
       <%= yield %>
     </div>

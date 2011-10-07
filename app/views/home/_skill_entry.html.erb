@@ -8,11 +8,13 @@
 
   </div>
 
-  <div class="sub-actions">
-    <a href="#" class="action-button edit">edit</a>
-    <a href="#" class="action-button cancel hidden">cancel</a>
-    <%= link_to "delete", skill_url( skill ), :class=>"action-button delete"%>
-  </div>
+  <% if can_edit?(@profile)%>
+    <div class="sub-actions">
+      <a href="#" class="action-button edit">edit</a>
+      <a href="#" class="action-button cancel hidden">cancel</a>
+      <%= link_to "delete", skill_url( skill ), :class=>"action-button delete"%>
+    </div>
   
-  <%= render :partial => "home/skill_form", :locals => {:skill => skill}%>
+    <%= render :partial => "home/skill_form", :locals => {:skill => skill}%>
+  <% end %>
 </li>

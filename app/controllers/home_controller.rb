@@ -12,5 +12,9 @@ class HomeController < ApplicationController
   
   def show_public
     @profile = Profile.find( params[:model_id] )
+    @user = @profile.user
+    @work_experiences = @user.work_experiences
+    @skills = @user.skills
+    @educations = @user.educations
   end
 end

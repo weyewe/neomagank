@@ -1,60 +1,25 @@
 <div class="cv-section last col-1 fixed">
 
 	<h2 class="cv-section-name">Education</h2>
-	<%= render :partial => "education_form", :locals => {:education => @education}%>
-	
+	<% if can_edit?(@profile)%>
+  	<%= render :partial => "education_form", :locals => {:education => @education}%>
+	<% end %>
 	<ul class="cv-section-items" id="educations">
-	  <% current_user.educations.order("created_at DESC").each do |education| %>
-	    <%= render :partial => "education_entry" , :locals => {:education => education} %>
-	  <% end%>
+	  <% if can_edit?(@profile) %>
+  	  <% current_user.educations.order("created_at DESC").each do |education| %>
+  	    <%= render :partial => "education_entry" , :locals => {:education => education} %>
+  	  <% end%>
+	  <% else %>
+	    <% @user.educations.order("created_at DESC").each do |education| %>
+  	    <%= render :partial => "education_entry" , :locals => {:education => education} %>
+  	  <% end%>
+	  <% end %>
 	
-	<!--     <li class="cv-item fixed">
-	   
-	     <h4>1999 - 2003</h4>
-	     
-	     <div class="cv-item-content">
-	       <h2>Brookton High School</h2>
-
-	       <br />
-	       <p>Donec condimentum congue scelerisque. Etiam accumsan, magna a auctor vestibulum, nibh eros elementum
-	        risus, ut lacinia nulla dui in leo. Nullam tristique, metus at sollicitudin posuere, ante erat congue
-	        risus, ac pretium lectus leo vitae.</p>
-	        
-	        
-	        <div class="sub-actions">
-	           <a href="#" class="action-button">edit</a>
-	           <a href="#" class="action-button">delete</a>
-	         </div>
-	         
-	         
-	     </div>  
-	      
-	   </li>
-	   <li class="cv-item fixed">
-	   
-	     <h4>2003 - 2007</h4>
-	     
-	     <div class="cv-item-content">
-	       <h2>Boston State University</h2>
-
-	       <br />
-	       <p>In hac habitasse platea dictumst. Suspendisse posuere rutrum augue in aliquam. Vivamus vulputate tellus
-	        ac lorem viverra rutrum. Proin nisl massa, lobortis vel tristique vel, consectetur at orci. Donec nibh tellus,
-	        viverra eu pellentesque sed, sollicitudin in dolor. Etiam et lacus mi, vel luctus justo.</p>
-	        
-	        <div class="sub-actions">
-	           <a href="#" class="action-button">edit</a>
-	           <a href="#" class="action-button">delete</a>
-	         </div>
-	         
-	         
-	     </div>
-	        
-	   </li>
-	    -->
 	</ul><!-- end .cv-section-items -->
-  <div class="super-actions">
-    <a href="#" class="action-button add">add</a>
-    <a href="#" class="action-button cancel hidden">cancel</a>
-  </div>
+	<% if can_edit?(@profile) %>
+    <div class="super-actions">
+      <a href="#" class="action-button add">add</a>
+      <a href="#" class="action-button cancel hidden">cancel</a>
+    </div>
+  <% end %>
 </div><!-- end .cv-section -->
