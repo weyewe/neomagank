@@ -1,4 +1,8 @@
 class HomeController < ApplicationController
+  
+  skip_filter :authenticate_user!, :only => [ :show_public]
+  
+  
   def show
     @profile = current_user.profile
     @work_experience = WorkExperience.new
@@ -7,5 +11,6 @@ class HomeController < ApplicationController
   end
   
   def show_public
+    @profile = Profile.find( params[:model_id] )
   end
 end

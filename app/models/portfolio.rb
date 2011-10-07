@@ -1,6 +1,12 @@
 class Portfolio < ActiveRecord::Base
   belongs_to :user
   has_many :portfolio_images
+  extend FriendlyId
+  friendly_id :title, :use => :slugged
+
+  
+  
+  
   
   def self.create_and_extract_transloadit( params , current_user)
     portfolio = self.new( params[:portfolio] )

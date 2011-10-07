@@ -3,11 +3,9 @@
   <h2 class="cv-section-name">Personal Details</h2>
 
   <%= render :partial => "personal_details_entry", :locals => {:profile => @profile } %>  
-  <%= render :partial => "personal_details_form" , :locals => {:profile => @profile }%>
-
-
-
-
+  <% if not public_consumption? %>
+    <%= render :partial => "personal_details_form" , :locals => {:profile => @profile }%>
+  <% end %>
   <div class="actions">
     <a href="#" class="action-button edit">edit</a>
     <a href="#" class="action-button hidden cancel">cancel</a>

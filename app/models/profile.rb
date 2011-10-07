@@ -4,6 +4,11 @@ class Profile < ActiveRecord::Base
   belongs_to :user
   attr_accessor :crop_x, :crop_y, :crop_w, :crop_h 
   
+  extend FriendlyId
+  friendly_id :name, :use => :slugged
+
+    
+  
   
   
 

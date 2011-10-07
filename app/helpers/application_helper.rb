@@ -1,6 +1,12 @@
 require 'time'
 module ApplicationHelper
   
+  
+  def public_consumption?
+    if current_user.nil?
+    end 
+      
+  end
 
   
   # the object has to respond to starting_date end ending_date methods

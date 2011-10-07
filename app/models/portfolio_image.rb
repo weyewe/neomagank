@@ -8,6 +8,5 @@ class PortfolioImage < ActiveRecord::Base
     
     portfolio.assign_transloadit( params )
     
-    
   end
 end

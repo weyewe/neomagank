@@ -3,15 +3,16 @@
               :locals=> {:images => @images}) %> 
 $(document).ready(function(){
   $("#slide2").remove();
+  $("#controls").remove();
   $("#sliderWrapper").prepend('<%= new_entry%>');
   
-    $("#slide2").easySlider({
-   auto: true, 
-   continuous: true,
-   speed: 800,
-   controlsShow: true,
-   numeric: true,
-   numericId: 'controls'
+  $("#slide2").easySlider({
+    auto: false, 
+    continuous: false,
+    speed: 800,
+    controlsShow: true,
+    numeric: true,
+    numericId: 'controls'
   });
     
     
