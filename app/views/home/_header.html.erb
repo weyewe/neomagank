@@ -1,8 +1,11 @@
 <div id="header">
 	
 	<div id="block-top" style="text-align:right;">
-	  <%= link_to "Logout", destroy_user_session_url , :class => "logout-link"%>
+	  <% if  current_user %>
+	    <%= link_to "Logout", destroy_user_session_url , :class => "logout-link"%>
+	  <% end %>
 	</div>
+	
 	
 	<% if @profile %>
 	<div id="personal-info" class="fixed">
