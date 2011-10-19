@@ -1,0 +1,24 @@
+<h2>Sign in</h2>
+
+ 
+<%= form_for(resource, :as => resource_name, :url => session_path(resource_name), 
+  :html => {:class => "uniForm"}) do |f| %>
+  <fieldset>
+    <div class="ctrlHolder">
+      <%= f.label :email, "Email" %>
+      <%= f.email_field :email, :size => "35", :class => "textInput" %>
+      <p class="formHint">Email anda</p>
+    </div>
+  
+    <div class="ctrlHolder">
+      <%= f.label :password, "Password" %>
+      <%= f.password_field :password, :size => "35", :class => "textInput" %>
+      <p class="formHint">Isi dengan password anda</p>
+    </div>
+  
+    <div class="buttonHolder"><button type="submit" class="primaryAction">Submit</button></div>
+  </fieldset>
+<% end %>
+
+
+<%= render :partial => "devise/shared/links" %>
