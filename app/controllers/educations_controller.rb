@@ -3,6 +3,7 @@ class EducationsController < ApplicationController
     @education = Education.new( params[:education])
     @education.user_id = current_user.id
     @education.save
+    @profile = current_user.profile
     respond_to do |format|
       format.html { redirect_to root_url}
       format.js
@@ -14,6 +15,7 @@ class EducationsController < ApplicationController
   def update
     @education = Education.find_by_id( params[:id])
     @education.update_attributes( params[:education] )
+    @profile  = current_user.profile
     respond_to do |format|
       format.html { redirect_to root_url}
       format.js

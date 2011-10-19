@@ -12,6 +12,7 @@
 //= require uni-form.jquery.min
 //= require jquery.prettyLoader
 //= require jquery.Jcrop.min
+//= require jquery.showLoading.min
 
 
 
@@ -87,6 +88,8 @@ $(document).ready( function(){
   $("form.ajaxform").live('submit',function(){
     var $this = $(this);
     var destination = $(this).attr('action');
+    var $form_container = $this.parent();
+    $form_container.showLoading();
   	$.ajax({
   		url: destination,
   		type: "POST",
@@ -95,6 +98,7 @@ $(document).ready( function(){
   		success: function(response){
   		  $this.clearForm();
   		  $this.hide();
+  		  $form_container.hideLoading();
         // reset buttons >> close the cancel, show the edit/delete, etc
         resetActionSelector();
   		}
@@ -131,8 +135,6 @@ $(document).ready( function(){
     
     return false;
   });
-  
-  
   
 
 	

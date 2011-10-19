@@ -3,6 +3,7 @@ class SkillsController < ApplicationController
     @skill = Skill.new( params[:skill])
     @skill.user_id = current_user.id
     @skill.save
+    @profile = current_user.profile
     respond_to do |format|
       format.html { redirect_to root_url}
       format.js
@@ -14,6 +15,7 @@ class SkillsController < ApplicationController
   def update
     @skill = Skill.find_by_id( params[:id])
     @skill.update_attributes( params[:skill] )
+    @profile = current_user.profile
     respond_to do |format|
       format.html { redirect_to root_url}
       format.js

@@ -12,7 +12,7 @@
 	  <% if can_edit?(@profile) %>
   	  <% current_user.work_experiences.order("created_at DESC").each do |work_experience| %>
   	    <%= render :partial => "work_experience_entry" , 
-  	          :locals => {:work_experience => work_experience} %>
+  	          :locals => {:work_experience => work_experience, :profile => @profile} %>
   	  <% end%>
 	  <% else %>
 	    <% @user.work_experiences.order("created_at DESC").each do |work_experience| %>

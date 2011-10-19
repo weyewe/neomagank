@@ -1,7 +1,8 @@
 class ProfilesController < ApplicationController
   PROFILE_UPDATE_TYPE= [:about_me_update, :personal_details_update, :profile_pic_update]
   def update
-    @profile = Profile.find_by_id( params[:id])
+    
+    @profile = Profile.find_by_id( params[:id]) || current_user.profile
     @profile.update_attributes( params[:profile] )
     
     # @about_me_update = about_me_update?(params)

@@ -2,17 +2,17 @@
 
 	<h2 class="cv-section-name"> Technical Skills</h2>
 	<% if can_edit?(@profile)%>
-  	<%= render :partial => "home/skill_form", :locals => {:skill => @skill}%>
+  	<%= render :partial => "home/skill_form", :locals => {:skill => @skill, :profile => @profile}%>
   <% end %>
 	
 	<ul class="cv-section-items" id="skills">
 	  <% if can_edit?(@profile) %>
   	  <% current_user.skills.order("created_at DESC").each do |skill| %>
-  	    <%= render :partial => "skill_entry" , :locals => {:skill => skill} %>
+  	    <%= render :partial => "skill_entry" , :locals => {:skill => skill, :profile => @profile} %>
   	  <% end%>
 	  <% else %>
 	    <% @user.skills.order("created_at DESC").each do |skill| %>
-  	    <%= render :partial => "skill_entry" , :locals => {:skill => skill} %>
+  	    <%= render :partial => "skill_entry" , :locals => {:skill => skill, :profile => @profile} %>
   	  <% end%>
 	  <% end %>
 		

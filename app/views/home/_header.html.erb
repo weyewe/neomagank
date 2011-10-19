@@ -4,11 +4,13 @@
 	  <%= link_to "Logout", destroy_user_session_url , :class => "logout-link"%>
 	</div>
 	
+	<% if @profile %>
 	<div id="personal-info" class="fixed">
 
 	  
 	  <% text = "" %>
-	  <% if @profile.cropped_profile_pic.nil? %>
+	  
+	  <% if  @profile.cropped_profile_pic.nil? %>
 	    <% text =  "Belum ada profile pic? <br /><a><b>Click saja!</b></a>" %>
 	  <% else %>
 	    <% text = "Mau ganti profile pic? <br /><a><b>Click saja!</b></a>"%>
@@ -27,11 +29,13 @@
 		<h1 id="name"><%= @profile.name || "Your name here"%></h1>
 		<h2 id="what-you-do">Automobile SPG</h2>
 	</div><!-- end #personal-info -->
-			
+	<% end %>
 			
 	<ul id="nav" class="fixed">
-	  <li><a href="portfolio.html">Gallery</a></li>
-		<li>/</li>
+	  <% if can_edit?(@profile) %>
+  	  <li><a href="portfolio.html">Gallery</a></li>
+  		<li>/</li>
+		<% end %>
 		<li>
 		  <%= link_to "Resume", root_url, :class => "#{get_active_nav(params, 'resume') }"%>
 		</li>
@@ -39,10 +43,12 @@
 		<li>
 		  <%= link_to "Portfolio", portfolios_url, :class => "#{get_active_nav(params, 'portfolio') }" %>
 		</li>
-		<li>/</li>
-		<li><a href="portfolio.html">Testimonial</a></li>
-		<li>/</li>
-		<li><a href="contact.html">Account</a></li>
+		<% if can_edit?(@profile)%>
+  		<li>/</li>
+  		<li><a href="portfolio.html">Testimonial</a></li>
+  		<li>/</li>
+  		<li><a href="contact.html">Account</a></li>
+		<% end %>
 	</ul><!-- end #nav -->
 
   

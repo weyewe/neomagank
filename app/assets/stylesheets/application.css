@@ -8,4 +8,5 @@
  *= require default.uni-form
  *= require prettyLoader
  *= require jquery.Jcrop
+ *= require showLoading
 */

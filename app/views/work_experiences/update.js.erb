@@ -1,5 +1,5 @@
 <% updated_entry =  escape_javascript(render :partial => "home/work_experience_entry", 
-              :locals=> {:work_experience => @work_experience}) %> ;
+              :locals=> {:work_experience => @work_experience, :profile => @profile}) %> ;
 $(document).ready(function(){
   $("li#work_experience-<%= @work_experience.id %>").replaceWith('<%= updated_entry %>');
 });

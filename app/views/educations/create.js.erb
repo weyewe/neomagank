@@ -1,5 +1,5 @@
 <% new_entry =  escape_javascript(render :partial => "home/education_entry", 
-              :locals=> {:education => @education}) %> ;
+              :locals=> {:education => @education, :profile => @profile}) %> ;
 $(document).ready(function(){
   $("ul#educations").prepend('<%= new_entry %>');
 });

@@ -1,5 +1,5 @@
 <% updated_entry =  escape_javascript(render :partial => "home/education_entry", 
-              :locals=> {:education => @education}) %> ;
+              :locals=> {:education => @education, :profile => @profile}) %> ;
 $(document).ready(function(){
   $("li#education-<%= @education.id %>").replaceWith('<%= updated_entry %>');
 });

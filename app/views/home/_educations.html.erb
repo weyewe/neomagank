@@ -2,16 +2,16 @@
 
 	<h2 class="cv-section-name">Education</h2>
 	<% if can_edit?(@profile)%>
-  	<%= render :partial => "education_form", :locals => {:education => @education}%>
+  	<%= render :partial => "education_form", :locals => {:education => @education, :profile => @profile}%>
 	<% end %>
 	<ul class="cv-section-items" id="educations">
 	  <% if can_edit?(@profile) %>
   	  <% current_user.educations.order("created_at DESC").each do |education| %>
-  	    <%= render :partial => "education_entry" , :locals => {:education => education} %>
+  	    <%= render :partial => "education_entry" , :locals => {:education => education, :profile => @profile} %>
   	  <% end%>
 	  <% else %>
 	    <% @user.educations.order("created_at DESC").each do |education| %>
-  	    <%= render :partial => "education_entry" , :locals => {:education => education} %>
+  	    <%= render :partial => "education_entry" , :locals => {:education => education, :profile => @profile} %>
   	  <% end%>
 	  <% end %>
 	
