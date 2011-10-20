@@ -4,37 +4,52 @@
   <%= stylesheet_link_tag "css.easyslider"%>
   <%= javascript_include_tag "jquery.easyslider"%>
   <script type="text/javascript">
-    $(document).ready(function(){
-      $("#slide2").easySlider({
-  			auto: false, 
-  			continuous: false,
-  			speed: 800,
-  			controlsShow: true,
-  			numeric: true,
-  			numericId: 'controls'
-  		});
-    });
+    // $(document).ready(function(){
+    //   $("#slide2").easySlider({
+    //        auto: false, 
+    //        continuous: false,
+    //        speed: 800,
+    //        controlsShow: true,
+    //        numeric: true,
+    //        numericId: 'controls'
+    //      });
+    // });
   	
   </script>
 <% end %>
 <h2 class="title"><%= @portfolio.title %></h2>	
 <div id="portfolio">
   
+
   
-  <div class="portfolio-item col-1 fixed">
-		
-		<div class="imageFormWrapper" style="border : 1px solid #E6E6E6; clear:both; display:block;">
-			
-      <%= render :partial => "portfolio_image_form", 
+  <!-- <div class="portfolio-item col-1 fixed">
+    
+    <div class="imageFormWrapper" style="border : 1px solid #E6E6E6; clear:both; display:block;">
+      
+      <%#= render :partial => "portfolio_image_form", 
         :locals => {:portfolio => @portfolio, 
                     :portfolio_image => PortfolioImage.new }%>
                     
-		</div>
-	</div><!-- end .portfolio-item -->
+    </div>
+  </div> --><!-- end .portfolio-item -->
 	
 	
 
-
+  <div class="portfolio-item col-1 fixed">
+    <ul style="list-style:none;">
+      <% if @images.length !=  0 %>
+        <% @images.each do |image| %>
+          <li style="margin-bottom:30px;">
+            <%= image_tag "#{image}" , :width => "678", :height => "312" , :style => "border: 1px solid rgb(230,230,230); padding:1px;"%>
+          </li>
+        <% end %>
+      <% else %>
+        <li>
+          <%= image_tag "#{DEFAULT_PORTFOLIO_SHOW_IMAGE}" , :width => "678", :height => "312"%>
+        </li>
+      <% end %>
+    </ul>
+  </div>
 
 	<div class="portfolio-item col-1 fixed">
 	
@@ -72,5 +87,6 @@
     </div>
 		
 	</div><!-- end .portfolio-item -->
+
 
 </div><!-- end #portfolio -->	
