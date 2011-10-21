@@ -4,7 +4,7 @@
 <% content_for :head do %>
   <script type="text/javascript">
   $(document).ready(function(){
-    $("form.exeShowLoading").click(function(){
+    $("form.exeShowLoading").submit(function(){
       $(this).showLoading();
     });
   });
