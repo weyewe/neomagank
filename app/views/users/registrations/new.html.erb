@@ -1,10 +1,19 @@
 <h2>Sign up</h2>
 
+
+<% content_for :head do %>
+  <script type="text/javascript">
+  $(document).ready(function(){
+    $("form.exeShowLoading").click(function(){
+      $(this).showLoading();
+    });
+  });
+  </script>
+<% end %>
 <%= form_for(resource, :as => resource_name, :url => registration_path(resource_name), 
-  :html => {:class =>"uniForm"}) do |f| %>
+  :html => {:class =>"uniForm exeShowLoading"}) do |f| %>
   <fieldset>
     <%= devise_error_messages! %>
-    
     <div class="ctrlHolder">
       <%= f.label :email, "Email" %>
       <%= f.email_field :email, :size => "35", :class => "textInput" %>
@@ -23,7 +32,6 @@
       <p class="formHint">Isi  password anda sekali lagi</p>
     </div>
     
-    <%= recaptcha_tags %>
     
     
     <div class="buttonHolder"><button type="submit" class="primaryAction">Submit</button></div>
