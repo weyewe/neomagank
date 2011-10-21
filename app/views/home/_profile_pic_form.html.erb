@@ -17,17 +17,19 @@
   <%#= render :partial => "shared/cropper", :locals => {:resource => @profile}%>
 
     
-</div>
+    
+    <script type="text/javascript">
+    var tlProtocol = (('https:' == document.location.protocol) ? 'https://' : 'http://');
+    document.write(unescape("%3Cscript src='" + tlProtocol + "assets.transloadit.com/js/jquery.transloadit2.js' type='text/javascript'%3E%3C/script%3E"));
+    </script>
+    <script type="text/javascript">
+       jQuery(document).ready(function() {
+         jQuery('#new_profile_image_form').transloadit({wait: true});
+       });
+    </script>
 
-<script type="text/javascript">
-var tlProtocol = (('https:' == document.location.protocol) ? 'https://' : 'http://');
-document.write(unescape("%3Cscript src='" + tlProtocol + "assets.transloadit.com/js/jquery.transloadit2.js' type='text/javascript'%3E%3C/script%3E"));
-</script>
-<script type="text/javascript">
-   // We call .transloadit() after the DOM is initialized:
-   console.log("haha, transloadit for profile pic is initialized");
-   jQuery(document).ready(function() {
-     jQuery('#new_profile_image_form').transloadit({wait: true});
-   });
-</script>
+    
+    
+    
+</div>
 

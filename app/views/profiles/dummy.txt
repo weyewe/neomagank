@@ -1,0 +1,25 @@
+// <% url = check_crop_result_url(@profile) %>
+//   var check_url =   <%=  ( "'" + url + "'").html_safe  %>  ;
+//  <% profile_pic_form =  escape_javascript(render :partial => "home/profile_pic_form", 
+//                 :locals=> { :resource => @profile}) %> 
+//                 
+//   console.log("Before ajax");
+//   $.ajax({
+//    url: check_url,
+//    type: "GET",
+//    dataType: 'json',
+//    success: function(response){
+//      var image_url = response['image_url'];
+//      
+//      if( image_url.length == 0 ){
+//         setTimeout("checkCropResult()" ,   5000 );
+//      }
+//      else {
+//         // $("#cropper_id").hideLoading(); 
+//        // replace the profile picture
+//        // throw away the cropper
+//        $("a#picture-of-you img").attr('src' , image_url);
+//        $("#cropperContainer").replaceWith('<%= profile_pic_form %>');
+//      } 
+//    }
+//  });

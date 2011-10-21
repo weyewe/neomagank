@@ -21,10 +21,32 @@ class ProfilesController < ApplicationController
     end
   end
   
+  def check_crop_result
+     @profile = Profile.find( params[:profile_id])
+     hash = {}
+     if @profile.is_cropping 
+       hash["is_cropping"] = 1 
+       hash["cropped_profile_pic"]  = ""
+     else
+       hash["is_cropping"] = 0 
+       hash["cropped_profile_pic"]  = @profile.cropped_profile_pic
+     end
+     respond_to do |format|
+       format.json { render :json => hash }
+     end
+  end
   
   def crop
-    current_user.profile.execute_cropping( params[:profile] )
-    redirect_to  root_url 
+    @profile = current_user.profile
+    
+    @profile.execute_cropping( params[:profile] )
+    # current_user.profile.execute_cropping( params[:profile] )
+
+    
+    respond_to do |format|
+      format.html { redirect_to root_url}
+      format.js
+    end
   end
   
   protected

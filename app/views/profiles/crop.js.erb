@@ -1,0 +1,58 @@
+$(document).ready(function(){
+  
+  
+  console.log("WTF man...");
+  setTimeout("console.log('this is me before checkCropResult')", 5000);
+  
+  
+  setTimeout("checkCropResult()", 5000);
+  
+  setTimeout("console.log('this is me after checkCropResult')", 5000);
+  
+});
+
+
+
+function checkCropResult(){
+  console.log("calling checkCropResult'");
+
+  <% url = check_crop_result_url(@profile) %>
+  
+  
+  var check_url =   <%=  ( "'" + url + "'").html_safe  %>  ;
+  
+  <% profile_pic_form =  escape_javascript(render :partial => "home/profile_pic_form", 
+  :locals=> { :resource => @profile}) %> 
+  
+  <% personal_info = escape_javascript(render :partial => "home/personal_info", 
+  :locals=> { :profile => @profile})%>
+
+  console.log("Before ajax");
+  $.ajax({
+    url: check_url,
+    type: "GET",
+    dataType: 'json',
+    success: function(response){
+      var image_url = response['cropped_profile_pic'];
+
+      if( image_url.length == 0 ){
+        setTimeout("checkCropResult()" ,   5000 );
+      }
+      else {
+        console.log("Ey mate, ready ready");
+        // $("#crop_form").hideLoading(); 
+      
+        
+        $("a#picture-of-you img").replaceWith("<img src='" + image_url + "' />" );
+      
+        $("#cropperContainer").remove();
+        // $("#content").prepend('<%= profile_pic_form %>');
+        // $("#content").prepend('<%= profile_pic_form %>');
+        
+        console.log('<%= profile_pic_form %>');
+        
+        location.reload();
+      } 
+    }
+  });
+}

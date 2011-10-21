@@ -1,10 +1,13 @@
+
+
 <div id="cropperContainer">
   <div id="cropImageWrapper">
     <%= image_tag resource.profile_pic, :id => "cropbox" %>  
   </div>
 
 
-  <%= form_for resource, :url => crop_profile_image_url , :html => {:class => "uniForm"} do |f| %>
+  <%= form_for resource, :url => crop_profile_image_url , 
+        :html => {:class => "uniForm exeShowLoading ajaxform", :id => "crop_form"} do |f| %>
     <% for attribute in [:crop_x, :crop_y, :crop_w, :crop_h] %>  
       <%= f.hidden_field attribute, :id => attribute %>  
     <% end %>  

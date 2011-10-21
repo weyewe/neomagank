@@ -106,6 +106,12 @@ $(document).ready( function(){
   	return false;
   });
   
+  $("form.exeShowLoading").live('submit',function(){
+    $(this).showLoading();
+  });
+  
+  
+  
   // to delete resource
   $('a.delete').live('click', function(event) {
     
@@ -254,5 +260,6 @@ function resetActionSelector(){
   });
   
 }
+
 
 

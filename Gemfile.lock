@@ -46,6 +46,9 @@ GEM
       execjs
     coffee-script-source (1.1.2)
     daemons (1.1.4)
+    delayed_job (2.1.4)
+      activesupport (~> 3.0)
+      daemons
     devise (1.4.5)
       bcrypt-ruby (~> 3.0)
       orm_adapter (~> 0.0.3)
@@ -142,6 +145,7 @@ PLATFORMS
 DEPENDENCIES
   aws-s3
   coffee-rails (~> 3.1.0)
+  delayed_job
   devise
   friendly_id (~> 4.0.0.beta8)
   jquery-rails

@@ -13,12 +13,15 @@ class Profile < ActiveRecord::Base
   
 
   def execute_cropping( params_profile )
+    self.is_cropping = true
+    self.save 
     x1 = params_profile[:crop_x].to_i
     y1 = params_profile[:crop_y].to_i
     x2 = x1 +  params_profile[:crop_w].to_i
     y2 = y1 +  params_profile[:crop_h].to_i
 
-    crop_avatar( x1,x2,y1,y2)
+    self.delay.crop_avatar( x1,x2,y1,y2)
+    
   end
   
   
@@ -63,6 +66,7 @@ class Profile < ActiveRecord::Base
     puts "The content of result is \n"*10
     puts response["results"]
     self.cropped_profile_pic = response["results"]["resize"].first["url"]
+    self.is_cropping = false
     self.save
     
   end

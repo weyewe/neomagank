@@ -6,6 +6,8 @@ Neomagank::Application.routes.draw do
   match 'profile/execute_crop_profile_pic' => "profiles#crop", :as => :crop_profile_image
   match 'model/:model_id' => "home#show_public", :as => :show_public
   match 'model/:model_id/portfolio/:portfolio_id'  => "portfolios#show_public", :as => :model_portfolio_url
+  match 'profile/check_crop_result/:profile_id' => "profiles#check_crop_result", :as => :check_crop_result
+  
   
   resources :users do
     resources :portfolios

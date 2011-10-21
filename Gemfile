@@ -15,7 +15,7 @@ gem 'transloadit-rails' , ">= 1.0.2"
 
 gem 'recaptcha', :require => 'recaptcha/rails'
 
-
+gem 'delayed_job'
 
 # Gems used only for assets and not required
 # in production environments by default.

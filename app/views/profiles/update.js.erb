@@ -41,7 +41,6 @@
                 :locals => {:resource => @profile}) %>
                 
   $(document).ready(function(){
-    console.log("Fucking yeah, we are here");
     $("#profile-pic-form").replaceWith('<%= cropper %>');
     jQuery('#cropbox').Jcrop( {
         onChange: update_crop,  

@@ -1,15 +1,7 @@
 <h2>Sign up</h2>
 
 
-<% content_for :head do %>
-  <script type="text/javascript">
-  $(document).ready(function(){
-    $("form.exeShowLoading").submit(function(){
-      $(this).showLoading();
-    });
-  });
-  </script>
-<% end %>
+
 <%= form_for(resource, :as => resource_name, :url => registration_path(resource_name), 
   :html => {:class =>"uniForm exeShowLoading"}) do |f| %>
   <fieldset>
