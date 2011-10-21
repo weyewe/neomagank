@@ -1,18 +1,38 @@
 <h2>Sign up</h2>
 
-<%= form_for(resource, :as => resource_name, :url => registration_path(resource_name)) do |f| %>
-  <%= devise_error_messages! %>
+<%= form_for(resource, :as => resource_name, :url => registration_path(resource_name), 
+  :html => {:class =>"uniForm"}) do |f| %>
+  <fieldset>
+    <%= devise_error_messages! %>
+    
+    <div class="ctrlHolder">
+      <%= f.label :email, "Email" %>
+      <%= f.email_field :email, :size => "35", :class => "textInput" %>
+      <p class="formHint">Email anda</p>
+    </div>
+    
+    <div class="ctrlHolder">
+      <%= f.label :password, "Password" %>
+      <%= f.password_field :password, :size => "35", :class => "textInput" %>
+      <p class="formHint">Isi dengan password anda</p>
+    </div>
+    
+    <div class="ctrlHolder">
+      <%= f.label :password_confirmation, "Password Confirmation" %>
+      <%= f.password_field :password_confirmation, :size => "35", :class => "textInput" %>
+      <p class="formHint">Isi  password anda sekali lagi</p>
+    </div>
+    
+    <%= recaptcha_tags %>
+    
+    
+    <div class="buttonHolder"><button type="submit" class="primaryAction">Submit</button></div>
+    
+    
+  </fieldset>
+  
 
-  <div><%= f.label :email %><br />
-  <%= f.email_field :email %></div>
-
-  <div><%= f.label :password %><br />
-  <%= f.password_field :password %></div>
-
-  <div><%= f.label :password_confirmation %><br />
-  <%= f.password_field :password_confirmation %></div>
-
-  <div><%= f.submit "Sign up" %></div>
 <% end %>
 
 <%= render :partial => "devise/shared/links" %>
+

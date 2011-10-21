@@ -33,17 +33,10 @@
             }%>
     <% end %>
     
-    <!-- <div class="col-1 portfolio-pagination fixed">
-      <ul>
-        <li><a href="#">&laquo; Prev</a></li>
-        <li><a href="#" class="active">1</a></li>
-        <li><a href="#">2</a></li>
-        <li><a href="#">3</a></li>
-        <li><a href="#">4</a></li>
-        <li><a href="#">5</a></li>
-        <li><a href="#">Next &raquo;</a></li>
-      </ul>
-    </div> --><!-- end portfolio-pagination -->
+    <% if @portfolios.count == 0 %>
+    <h1>Anda belum memiliki portfolio sama sekali</h1>
+    <h1><a href="#" class="first-portfolio">Buat portfolio pertama anda</a></h1>
+    <% end %>
 
   </div><!-- end #portfolio -->
 
