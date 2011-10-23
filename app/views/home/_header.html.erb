@@ -2,7 +2,16 @@
 	
 	<div id="block-top" style="text-align:right;">
 	  <% if  current_user %>
-	  <%= link_to "Setting", "http://google.com"  , :class => "logout-link"%>
+	  
+	  <%= link_to "Search Jobs", root_url  , :class => "logout-link tip-north jobs ", 
+	      :title =>"Cari Lowongan Kerja"%>
+	  
+	  <%= link_to "CV", root_url  , :class => "logout-link tip-north header-active", 
+	      :title =>"Your CV"%>
+	      
+	      
+	  <%= link_to "Setting", "http://google.com"  , :class => "logout-link tip-north", 
+	      :title =>"Change Password or Email"%>
 	  
 	    <%= link_to "Logout", destroy_user_session_url , :class => "logout-link"%>
 	  <% end %>
