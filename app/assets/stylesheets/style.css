@@ -239,9 +239,9 @@ body{
 	
 /* User edit */
 .logout-link { background-color: #EEEEEE; color:rgb(80,80,80); padding: 2px 10px;  font-weight:bold; font-size:14px; border:1px solid #EEEEEE; text-decoration: none;}
-.logout-link:hover { background-color: rgb(50,50,50); color:white; border:1px solid black}
+.logout-link:hover { background-color: rgb(50,50,50); color:white; border:1px solid rgb(50,50,50);}
 .header-active { background-color: black; color:white; border:1px solid black }
-.header-active.hover { background-color: black}
+.header-active.hover { background-color: black; border : 1px solid black}
 
 .hidden { display :none;}
 .cancel { color: red !important; font-weight:bold; }
