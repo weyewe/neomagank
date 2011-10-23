@@ -9,4 +9,5 @@
  *= require prettyLoader
  *= require jquery.Jcrop
  *= require showLoading
+ *= require tipsy
 */
