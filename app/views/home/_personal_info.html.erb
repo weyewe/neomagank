@@ -16,9 +16,9 @@ $(document).ready(function(){
   <% text = "" %>
 
   <% if  profile.cropped_profile_pic.nil? %>
-    <% text =  "Belum ada profile pic? <br /><a><b>Click saja!</b></a>" %>
+    <% text =  "Click untuk tambah profile pic <br />" %>
   <% else %>
-    <% text = "Mau ganti profile pic? <br /><a><b>Click saja!</b></a>"%>
+    <% text = "Click untuk ganti profile pic <br />"%>
   <% end %>
 
   <a id="picture-of-you"  href="http://www.ibukitakartini.com/wp-content/files_mf/lunamaya2.jpg" 
@@ -30,7 +30,7 @@ $(document).ready(function(){
     <% end %>
   </a>
 
-<h1 id="name"><%= @profile.name || "Your name here"%></h1>
+<h1 id="name" title="<%= "Coba bawa mouse anda ke bawah, bagian Personal Details"%>" class="tip-south"><%= @profile.name || "Your name here"%></h1>
 <h2 id="what-you-do">Automobile SPG</h2>
 </div><!-- end #personal-info -->
 
