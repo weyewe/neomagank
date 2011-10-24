@@ -1,0 +1,19 @@
+<div class="cv-section last col-1 fixed">
+
+	<h2 class="cv-section-name">Jobs List</h2>
+	<%# if can_edit?(@profile)%>
+  	<%#= render :partial => "education_form", :locals => {:education => @education, :profile => @profile}%>
+	<%# end %>
+  <ul class="cv-section-items" id="jobs">
+    
+    <%= render :partial => "job_entry" %>
+    
+  </ul><!-- end .cv-section-items -->
+  
+	<% if can_edit?(@profile) %>
+    <div class="super-actions">
+      <a href="#" class="action-button add">add</a>
+      <a href="#" class="action-button cancel hidden">cancel</a>
+    </div>
+  <% end %>
+</div><!-- end .cv-section -->

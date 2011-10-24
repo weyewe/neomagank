@@ -1,5 +1,7 @@
 Neomagank::Application.routes.draw do
   
+  devise_for :companies
+
   devise_for :users
 
   root :to => 'home#show'
@@ -12,6 +14,8 @@ Neomagank::Application.routes.draw do
   resources :users do
     resources :portfolios
   end
+  
+  resources :jobs
 
   resources :portfolios do 
     resources :portfolio_images

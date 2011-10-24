@@ -14,6 +14,12 @@ module ApplicationHelper
       end
     end
     
+    if(element == "JOBS")
+      if params[:controller] == "jobs"
+        return "header-active"
+      end
+    end
+    
     
     return ""
     

@@ -1,0 +1,25 @@
+<ul id="nav" class="fixed">
+	<li>
+	  <%= link_to "Business Analyst", root_url, :class => "active"%>
+	</li>
+	
+	<li>/</li>
+  <li>
+    <%= link_to "Design", portfolios_url, :class => "#{get_active_nav(params, 'portfolio') }" %>
+  </li>
+  
+  <li>/</li>
+  <li>
+    <%= link_to "Programming", portfolios_url, :class => "#{get_active_nav(params, 'portfolio') }" %>
+  </li>
+  
+  <li>/</li>
+  <li>
+    <%= link_to "Sales", portfolios_url, :class => "#{get_active_nav(params, 'portfolio') }" %>
+  </li>
+  
+  
+  
+  
+  
+</ul><!-- end #nav -->

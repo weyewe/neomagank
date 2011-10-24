@@ -3,7 +3,7 @@
 	<div id="block-top" style="text-align:right;">
 	  <% if  current_user %>
 	  
-	  <%= link_to "Search Jobs", root_url  , :class => "logout-link tip-north jobs ", 
+	  <%= link_to "Search Jobs", jobs_url   , :class => "logout-link tip-north jobs #{get_header_active(params, 'JOBS')} ", 
 	      :title =>"Cari Lowongan Kerja"%>
 	  
 	  <%= link_to "CV", root_url  , :class => "logout-link tip-north #{get_header_active(params, 'CV')}", 
@@ -33,7 +33,7 @@
 	  <%= render :partial => "home/setting_navigation" %>
 	<% end %>
 	
-	<% if params[:controller] == "job" %>
+	<% if params[:controller] == "jobs" %>
 	  <%= render :partial => "home/jobs_navigation"%>
 	<% end %>
 
