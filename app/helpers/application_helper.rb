@@ -1,6 +1,23 @@
 require 'time'
 module ApplicationHelper
   
+  def get_header_active( params , element )
+    if(element == "CV")
+      if params[:controller] == "home"
+        return "header-active"
+      end
+    end
+    
+    if(element == "SETTING")
+      if params[:controller] == "passwords"
+        return "header-active"
+      end
+    end
+    
+    
+    return ""
+    
+  end
   
   def can_edit?( profile )
     if current_user.nil?
