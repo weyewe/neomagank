@@ -16,10 +16,21 @@ class User < ActiveRecord::Base
   
   after_create :create_profile
   
+  after_create :send_notification_email
+  
+  
   def owns_profile( profile )
     profile.user_id == self.id 
   end
   
+  def send_notification_email
+    # Notifier.signup(@user).deliver
+    
+    Notifier.delay.welcome_email(@user)
+    
+    
+    # Notifier.welcome_email(self.user, self).deliver
+  end
   
   
   protected
