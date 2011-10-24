@@ -26,7 +26,7 @@ class User < ActiveRecord::Base
   def send_notification_email
     # Notifier.signup(@user).deliver
     
-    Notifier.delay.welcome_email(@user)
+    Notifier.delay.welcome_email(self)
     
     
     # Notifier.welcome_email(self.user, self).deliver
