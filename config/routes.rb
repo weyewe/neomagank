@@ -23,6 +23,10 @@ Neomagank::Application.routes.draw do
   resources :educations
   resources :portfolios
   
+  match 'edit_credential' => "passwords#edit_credential" , :as => :edit_credential
+  match 'update_password' => "passwords#update" , :as => :update_password, :method => :put
+  
+  
   
   # The priority is based upon order of creation:
   # first created -> highest priority.

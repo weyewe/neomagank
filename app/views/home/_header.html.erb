@@ -10,7 +10,7 @@
 	      :title =>"Your CV"%>
 	      
 	      
-	  <%= link_to "Setting", "http://google.com"  , :class => "logout-link tip-north", 
+	  <%= link_to "Setting", edit_credential_url , :class => "logout-link tip-north ", 
 	      :title =>"Change Password or Email"%>
 	  
 	    <%= link_to "Logout", destroy_user_session_url , :class => "logout-link"%>
@@ -23,23 +23,18 @@
 	
 	<% end %>
 			
-	<ul id="nav" class="fixed">
-	  <% if can_edit?(@profile) %>
-  	  <li><a href="portfolio.html">Gallery</a></li>
-  		<li>/</li>
-		<% end %>
-		<li>
-		  <%= link_to "Resume", root_url, :class => "#{get_active_nav(params, 'resume') }"%>
-		</li>
-		<li>/</li>
-		<li>
-		  <%= link_to "Portfolio", portfolios_url, :class => "#{get_active_nav(params, 'portfolio') }" %>
-		</li>
-		<% if can_edit?(@profile)%>
-  		<li>/</li>
-  		<li><a href="portfolio.html">Testimonial</a></li>
-		<% end %>
-	</ul><!-- end #nav -->
+			
+	<% if params[:controller] == "home" %>		
+	  <%= render :partial => "home/home_navigation" %>
+	<% end %>
+	
+	<% if params[:controller] == "passwords" %>
+	  <%= render :partial => "home/setting_navigation" %>
+	<% end %>
+	
+	<% if params[:controller] == "job" %>
+	  <%= render :partial => "home/jobs_navigation"%>
+	<% end %>
 
   
   

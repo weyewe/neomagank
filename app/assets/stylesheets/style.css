@@ -249,3 +249,9 @@ body{
 
 /* PORTFOLIO */
 div.portfolio-index-wrapper { position: relative;}
+
+/* credential */
+h1.form-notification{ color: red;
+    font-size: 22px;
+    padding-bottom: 10px;
+    text-transform: uppercase;}

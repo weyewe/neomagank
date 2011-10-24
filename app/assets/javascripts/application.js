@@ -18,7 +18,9 @@
 
 $(document).ready( function(){
   // hovering for those without sub-actions
-
+  $("form.showLoad").submit(function(){
+    $("body").showLoading();
+  });
   
   $("div.cv-section, div.portfolio-index-wrapper").live({
     mouseenter:

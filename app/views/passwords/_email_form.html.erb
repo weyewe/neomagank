@@ -1,0 +1,27 @@
+<div class="cv-section col-1 fixed">
+
+  <h1><%= flash[:notice] %></h1>
+
+
+
+  <h2 class="cv-section-name">Change Email</h2>
+
+
+  <%= form_for @user , :html => {:class => " uniForm  cv-section-form" } do |f| %>
+
+  <fieldset class="inlineLabels">
+    <!--     <input id="personal_details_update" name="personal_details_update" type="hidden" 
+    value="VUBJKB23UIVI1UU1VOBVI@" /> -->
+    <div class="ctrlHolder">
+      <%= f.label :email, "Password Sekarang" %>
+      <%= f.password_field :email,  :size => "35", :class => "textInput"  %>
+    </div>
+
+
+
+
+
+    <div class="buttonHolder"><button type="submit" class="primaryAction">Submit</button></div>
+  </fieldset>
+  <% end %>
+</div>

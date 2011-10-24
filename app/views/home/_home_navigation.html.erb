@@ -1,0 +1,17 @@
+<ul id="nav" class="fixed">
+  <% if can_edit?(@profile) %>
+	  <li><a href="portfolio.html">Gallery</a></li>
+		<li>/</li>
+	<% end %>
+	<li>
+	  <%= link_to "Resume", root_url, :class => "#{get_active_nav(params, 'resume') }"%>
+	</li>
+	<li>/</li>
+	<li>
+	  <%= link_to "Portfolio", portfolios_url, :class => "#{get_active_nav(params, 'portfolio') }" %>
+	</li>
+	<% if can_edit?(@profile)%>
+		<li>/</li>
+		<li><a href="portfolio.html">Testimonial</a></li>
+	<% end %>
+</ul><!-- end #nav -->
